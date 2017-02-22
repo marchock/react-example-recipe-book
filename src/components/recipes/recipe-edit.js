@@ -129,10 +129,12 @@ class RecipeEdit extends Component {
 
     const { error, handleSubmit, pristine, reset, submitting } = this.props;
 
+    const marginTop = {marginTop: 0};
+
     return (
       <div>
         <div className="row">
-          <div className="col-xs-12">
+          <div className="col-xs-12" style={marginTop}>
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
               <div className="row">
                 <div className="col-xs-12">
@@ -161,7 +163,7 @@ class RecipeEdit extends Component {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="img">
-                    <img src={imgSrc} />
+                    <img src={imgSrc} width="100%" />
                   </div>
                 </div>
               </div>

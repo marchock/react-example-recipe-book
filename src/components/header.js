@@ -1,10 +1,30 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component, PropTypes } from 'react';
+import { Link, browserHistory } from 'react-router';
 
 
 class Header extends Component {
 
+  contextTypes: {
+    router: PropTypes
+  }
+
   render() {
+
+    const linkShoppingListActive = () => {
+      if (this.props.location.pathname.match('shopping-list')) {
+        return {backgroundColor: '#ccc'};
+      }
+    }
+
+    const linkRecipesActive = () => {
+      console.log('linkRecipesActive')
+      if (this.props.location.pathname.match('recipes') ||
+            this.props.location.pathname === '/') {
+        return {backgroundColor: '#ccc'};
+      }
+    }
+
+
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -15,23 +35,11 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li>
+              <li style={linkRecipesActive()}>
                 <Link to={'/recipes'}>Recipes</Link>
               </li>
-              <li>
+              <li style={linkShoppingListActive()}>
                 <Link to={'/shopping-list'}>Shopping List</Link>
-              </li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li className="dropdown" rbDropdown>
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span className="caret"></span></a>
-                <ul className="dropdown-menu">
-                  <li><a href="#">Login</a></li>
-                  <li><a href="#">Other</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
               </li>
             </ul>
           </div>

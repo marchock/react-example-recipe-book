@@ -2,11 +2,12 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
+
 import Recipes from './components/recipes/recipes';
 import RecipeDetail from './components/recipes/recipe-detail';
 import RecipeEdit from './components/recipes/recipe-edit';
 
-import ShoppingList from './components/shopping-list';
+import ShoppingList from './components/shopping-list/shopping-list';
 
 export default (
   <Route path="/" component={App}>

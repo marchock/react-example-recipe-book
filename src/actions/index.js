@@ -9,6 +9,15 @@ export const ADD_INGREDIENT = 'ADD_INGREDIENT';
 export const UPDATE_RECIPES = 'UPDATE_RECIPES';
 export const SAVE_NEW_RECIPE = 'SAVE_NEW_RECIPE';
 
+export const UPDATE_SHOPPING_LIST = 'UPDATE_SHOPPING_LIST';
+
+export function updateShoppingList(props) {
+  return {
+    type: UPDATE_SHOPPING_LIST,
+    payload: props
+  }
+}
+
 export function updateRecipes(props) {
   return {
     type: UPDATE_RECIPES,
