@@ -32,7 +32,7 @@ class RecipeDetail extends Component {
       <div>
         <div className="row">
           <div className="col-xs-12">
-            <img src={recipe.img} alt="" className="img-responsive" />
+            <img src={recipe.img} alt="" width="100%" className="img-responsive" />
           </div>
         </div>
 
