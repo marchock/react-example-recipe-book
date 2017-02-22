@@ -7,7 +7,7 @@ import _ from 'lodash';
 const required = value => value ? undefined : 'Required';
 const renderInput = ({ input, name, col, label, type, meta: { touched, error, warning } }) => (
   <div className={`form-group ${col}`}>
-    <label for="item-name">{label}</label>
+    <label>{label}</label>
     <input className="form-control" {...input} name={name} placeholder={label} type={type}/>
     <div className="text-help">
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}

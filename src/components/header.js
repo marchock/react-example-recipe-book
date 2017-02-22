@@ -17,7 +17,6 @@ class Header extends Component {
     }
 
     const linkRecipesActive = () => {
-      console.log('linkRecipesActive')
       if (this.props.location.pathname.match('recipes') ||
             this.props.location.pathname === '/') {
         return {backgroundColor: '#ccc'};

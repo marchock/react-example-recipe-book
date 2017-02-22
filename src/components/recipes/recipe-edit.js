@@ -71,7 +71,6 @@ class RecipeEdit extends Component {
   newRecipe(props) {
     let copy = _.cloneDeep(this.props.recipes);
     copy.push(props);
-    console.log(props);
     this.props.saveNewRecipe(copy);
 
     // redirect

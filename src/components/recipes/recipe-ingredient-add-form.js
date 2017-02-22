@@ -19,9 +19,6 @@ const renderInput = ({ input, name, label, type, meta: { touched, error, warning
 class AddIngredientForm extends Component {
 
   onSubmit(props) {
-
-    console.log(this.props.recipe);
-
     let copy = _.cloneDeep(this.props.recipe);
     copy.ingredients.push(props);
     this.props.addIngredient(copy);
