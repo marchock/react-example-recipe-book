@@ -6,7 +6,7 @@ Checkout this repo, install dependencies
 
 ```
 	> git clone
-	> cd ReduxSimpleStarter
+	> cd react-example-recipe-book
 	> npm install
 	> npm start
 ```
