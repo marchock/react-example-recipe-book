@@ -45,7 +45,7 @@ class RecipeEdit extends Component {
 
   componentWillMount() {
     // this will trigger mapStateToProps and update initialValues
-    if (this.props.params.id) {
+    if (this.props.params) {
       this.props.fetchRecipe(this.props.params.id);
     } else {
       this.props.fetchNewRecipe();
@@ -100,7 +100,7 @@ class RecipeEdit extends Component {
 
   render() {
 
-    const { id } = this.props.params;
+    const id = this.props.params ? this.props.params.id : null;
     const imgSrc = this.props.recipe ? this.props.recipe.img : '';
 
     const getIngredients = () => {
@@ -128,10 +128,10 @@ class RecipeEdit extends Component {
 
     const { error, handleSubmit, pristine, reset, submitting } = this.props;
 
-    const marginTop = {marginTop: 0};
+    const marginTop = { marginTop: 0 };
 
     return (
-      <div>
+      <div className="recipe-edit">
         <div className="row">
           <div className="col-xs-12" style={marginTop}>
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>

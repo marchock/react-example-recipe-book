@@ -1,14 +1,17 @@
+import _ from 'lodash';
+
 import {
+  UPDATE_SHOPPING_LIST,
+  UPDATE_RECIPES,
+  FETCH_NEW_RECIPE,
+  SAVE_NEW_RECIPE,
   DELETE_RECIPE,
   FETCH_RECIPE,
-  FETCH_NEW_RECIPEPE,
   SAVE_RECIPE,
   CLEAR_RECIPE,
-  DELETE_INGREDIENTENT,
-  ADD_INGREDIENT,
-  UPDATE_RECIPES,
-  SAVE_NEW_RECIPEE,
-  UPDATE_SHOPPING_LISTG_LIST
+  DELETE_INGREDIENT,
+  ADD_INGREDIENT
+
 } from './types';
 
 export function updateShoppingList(props) {
@@ -40,9 +43,12 @@ export function saveNewRecipe(props) {
 }
 
 export function deleteRecipe(props) {
+  let recipes = _.cloneDeep(props.recipes);
+  recipes.splice(props.payload, 1);
+
   return {
     type: DELETE_RECIPE,
-    payload: props
+    payload: recipes
   }
 }
 
@@ -68,8 +74,6 @@ export function clearRecipe(props) {
 }
 
 export function deleteIngredient(props) {
-
-
   return {
     type: DELETE_INGREDIENT,
     payload: props

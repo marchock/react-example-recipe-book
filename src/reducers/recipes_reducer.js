@@ -23,8 +23,7 @@ export default function(state = RECIPES_INITIAL_STATE, action) {
     return {...state, recipes: action.payload};
 
   case DELETE_RECIPE:
-    state.recipes.splice(Number(action.payload), 1);
-    return {...state, recipe: null};
+    return {...state, recipes: action.payload};
 
   case FETCH_RECIPE:
     return {...state, recipe: state.recipes[action.payload]};

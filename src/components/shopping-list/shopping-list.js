@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { updateShoppingList } from '../../actions/index';
+import * as actions from './shopping-list_actions';
 import _ from 'lodash';
 
 const required = value => value ? undefined : 'Required';
@@ -17,73 +17,43 @@ const renderInput = ({ input, name, col, label, type, meta: { touched, error, wa
 
 class ShoppingList extends Component {
 
-  onSubmit(props) {
-    let copy = _.cloneDeep(this.props.shoppingList);
+  onSubmit(newItem) {
+    let shoppingList = _.cloneDeep(this.props.shoppingList);
 
     if (this.props.shoppingList.item !== null) {
-      this.save(props, copy);
+      this.props.updateShoppingListItem({ shoppingList, newItem });
+      // forcing the initialValues to reset to null
+      this.props.initialize(null)
+
     } else {
-      this.add(props, copy);
+      this.props.addShoppingListItem({ shoppingList, newItem });
+      this.props.reset();
     }
   }
 
   onClickClear() {
-    this.props.reset();
-    let copy = _.cloneDeep(this.props.shoppingList);
-    copy.edit = false;
-    copy.item = null;
-    this.props.reset();
-    this.props.updateShoppingList(copy);
-
-    // forcing the initialValues to reset to null
-    this.props.initialize(null)
-  }
-
-  add(props, copy) {
-    copy.list.push(props);
-    this.props.updateShoppingList(copy);
-    this.props.reset();
-  }
-
-  save(props, copy) {
-    copy.edit = false;
-    copy.list[copy.item.index] = props;
-    copy.item = null;
-    this.props.updateShoppingList(copy);
-
+    this.props.clearShoppingListForm(this.props.shoppingList);
     // forcing the initialValues to reset to null
     this.props.initialize(null)
   }
 
   onClickDelete() {
-    let copy = _.cloneDeep(this.props.shoppingList);
-    copy.edit = false;
-    copy.list.splice(copy.item.index, 1);
-    copy.item = null;
-    this.props.updateShoppingList(copy);
-
+    this.props.deleteShoppingListItem(this.props.shoppingList);
     // forcing the initialValues to reset to null
     this.props.initialize(null);
   }
 
-
   onClickItem(index) {
-
     if (this.props.shoppingList.item && index === this.props.shoppingList.item.index) return;
+    // forcing the initialValues to reset to null
     this.props.initialize(null);
-
-    let copy = _.cloneDeep(this.props.shoppingList);
-    copy.edit = true;
-    copy.item = {
-      index: index,
-      name: copy.list[index].name,
-      amount: copy.list[index].amount
-    };
-    this.props.updateShoppingList(copy);
+    this.props.updateShoppingListForm({
+      shoppingList: this.props.shoppingList,
+      index
+    });
   }
 
   render() {
-
     const list = () => {
 
       let styles = null;
@@ -170,6 +140,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { updateShoppingList })(reduxForm({
+export default connect(mapStateToProps, actions)(reduxForm({
   form:'ShoppingListForm'
 })(ShoppingList));

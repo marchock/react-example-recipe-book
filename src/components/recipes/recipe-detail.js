@@ -10,7 +10,10 @@ class RecipeDetail extends Component {
   }
 
   onDeleteClick(id) {
-    this.props.deleteRecipe(id);
+    this.props.deleteRecipe({
+      recipes: this.props.recipes,
+      payload: Number(id)
+    });
     browserHistory.push('/recipes');
   }
 

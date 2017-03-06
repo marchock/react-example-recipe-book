@@ -11,7 +11,7 @@ class RecipeList extends Component {
   render() {
 
     return (
-      <div>
+      <div className="recipe-list">
         <div className="row">
           <div className="col-xs-12">
             <Link to={'/recipes/new'} className="btn btn-success">New Recipe</Link>

@@ -1,4 +1,4 @@
-export const SHOPPING_LIST_INITIAL_STATE = { list: [
+export const initialState = { list: [
   {
     name: 'yellow or orange peppers',
     amount: 2
