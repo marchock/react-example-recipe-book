@@ -1,7 +1,7 @@
 import { renderComponent , expect } from '../../test_helper';
 import ShoppingList from '../../../src/components/shopping-list/shopping-list';
 
-describe('ShoppingList' , () => {
+describe('Shopping List' , () => {
 
   let component;
 
@@ -9,7 +9,7 @@ describe('ShoppingList' , () => {
     component = renderComponent(ShoppingList);
   });
 
-  it('show recipes component', () => {
+  it('Should show Shopping List', () => {
     expect(component).to.exist;
   });
 });

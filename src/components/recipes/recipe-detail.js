@@ -18,11 +18,22 @@ class RecipeDetail extends Component {
   }
 
   render() {
-    const { id } = this.props.params;
-    const recipe = this.props.recipes[id];
+    const id = this.props.params ? this.props.params.id : 0;
+    let imgSrc = '';
+    let recipeName = '';
+    let recipeDescription = '';
+    let recipeIngredients = null;
+
+    if (this.props.recipes.length > 0) {
+      imgSrc = this.props.recipes[id].img;
+      recipeName = this.props.recipes[id].name;
+      recipeDescription = this.props.recipes[id].description;
+      recipeIngredients = this.props.recipes[id].ingredients;
+    }
+
 
     const getIngredients = () => {
-      return recipe.ingredients.map((ingredient, i) => {
+      return recipeIngredients.map((ingredient, i) => {
         return (
           <li className="list-group-item" key={i}>
             {ingredient.name} ({ingredient.amount})
@@ -35,13 +46,13 @@ class RecipeDetail extends Component {
       <div>
         <div className="row">
           <div className="col-xs-12">
-            <img src={recipe.img} alt="" width="100%" className="img-responsive" />
+            <img src={imgSrc} alt="" width="100%" className="img-responsive" />
           </div>
         </div>
 
         <div className="row">
           <div className="col-xs-12">
-            <h1>{recipe.name}</h1>
+            <h1>{recipeName}</h1>
           </div>
           <div className="col-xs-12">
             <Link to={'/shopping-list'} className="btn btn-success">To Shopping List</Link>
@@ -53,7 +64,7 @@ class RecipeDetail extends Component {
         <hr />
         <div className="row">
           <div className="col-xs-12">
-            <p>{recipe.description}</p>
+            <p>{recipeDescription}</p>
           </div>
         </div>
 

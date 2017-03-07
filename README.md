@@ -1,7 +1,8 @@
-# React Example Recipe Book
+# React and Redux Example Recipe Book
 
 
-###Getting Started###
+### Getting Starterd ###
+
 Checkout this repo, install dependencies
 
 ```
@@ -9,7 +10,19 @@ Checkout this repo, install dependencies
 	> cd react-example-recipe-book
 	> npm install
 	> npm run dev
-	
+
 ```
 
 <a href="https://react-example-recipe.herokuapp.com/">Demo</a>
+
+
+### Testing ###
+
+```
+
+	> npm test
+	
+	> npm run test -- --watch
+
+
+```
