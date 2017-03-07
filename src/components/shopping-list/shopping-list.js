@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from './shopping-list_actions';
-import _ from 'lodash';
+import ShoppingListItem from './shopping-list-item';
 
 const required = value => value ? undefined : 'Required';
+
 const renderInput = ({ input, name, col, label, type, meta: { touched, error, warning } }) => (
   <div className={`form-group ${col}`}>
     <label>{label}</label>
@@ -18,62 +19,52 @@ const renderInput = ({ input, name, col, label, type, meta: { touched, error, wa
 class ShoppingList extends Component {
 
   onSubmit(newItem) {
-    let shoppingList = _.cloneDeep(this.props.shoppingList);
-
     if (this.props.shoppingList.item !== null) {
-      this.props.updateShoppingListItem({ shoppingList, newItem });
-      // forcing the initialValues to reset to null
-      this.props.initialize(null)
+      this.props.updateShoppingListItem({ shoppingList: this.props.shoppingList, newItem });
+      this.resetForm();
 
     } else {
-      this.props.addShoppingListItem({ shoppingList, newItem });
+      this.props.addShoppingListItem({ shoppingList: this.props.shoppingList, newItem });
       this.props.reset();
     }
   }
 
   onClickClear() {
     this.props.clearShoppingListForm(this.props.shoppingList);
-    // forcing the initialValues to reset to null
-    this.props.initialize(null)
+    this.resetForm();
   }
 
   onClickDelete() {
     this.props.deleteShoppingListItem(this.props.shoppingList);
-    // forcing the initialValues to reset to null
-    this.props.initialize(null);
+    this.resetForm();
   }
 
   onClickItem(index) {
     if (this.props.shoppingList.item && index === this.props.shoppingList.item.index) return;
-    // forcing the initialValues to reset to null
-    this.props.initialize(null);
+    this.resetForm();
     this.props.updateShoppingListForm({
       shoppingList: this.props.shoppingList,
       index
     });
   }
 
+  resetForm() {
+    // forcing the initialValues to reset to null
+    this.props.initialize(null);
+  }
+
   render() {
-    const list = () => {
-
-      let styles = null;
-
-      return this.props.shoppingList.list.map((item, i) => {
-        if (this.props.shoppingList.item) {
-          styles = (i === this.props.shoppingList.item.index)
-              ? {backgroundColor: 'gray'}
-              : {};
-        }
-
+    const list = (shoppingList) => {
+      return shoppingList.list.map((item, i) => {
         return (
-          <li onClick={this.onClickItem.bind(this, i)}
-              key={`item-${i}`}
-              style={ styles }
-              className="list-group-item">
-            {item.name} ({item.amount})
-          </li>
+          <ShoppingListItem
+            item={item}
+            selectedItem={shoppingList.item}
+            index={i}
+            resetForm={this.resetForm.bind(this)}
+            key={`item-${i}`} />
         )
-      })
+      });
     }
 
     const showHidebuttons = () => {
@@ -125,7 +116,7 @@ class ShoppingList extends Component {
           </div>
           <hr />
           <ul className="list-group">
-            { list() }
+            { list(this.props.shoppingList) }
           </ul>
         </div>
       </div>

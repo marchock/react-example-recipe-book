@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { addIngredient } from '../../actions/index';
+import * as actions from './recipes_actions';
 import _ from 'lodash';
 
 
@@ -59,6 +59,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {addIngredient})(reduxForm({
+export default connect(mapStateToProps, actions)(reduxForm({
   form:'AddIngredientForm'
 })(AddIngredientForm));

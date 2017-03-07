@@ -9,7 +9,7 @@ import {
   DELETE_INGREDIENT,
   ADD_INGREDIENT,
   FETCH_NEW_RECIPE
-} from '../actions/types';
+} from './recipes_types';
 
 
 export default function(state = RECIPES_INITIAL_STATE, action) {

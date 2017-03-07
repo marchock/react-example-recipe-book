@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
-import { deleteRecipe } from '../../actions/index';
+import * as actions from './recipes_actions';
 
 class RecipeDetail extends Component {
 
@@ -73,4 +73,4 @@ function mapStateToProps(state) {
   return { recipes: state.recipes.recipes };
 }
 
-export default connect(mapStateToProps, {deleteRecipe})(RecipeDetail);
+export default connect(mapStateToProps, actions)(RecipeDetail);

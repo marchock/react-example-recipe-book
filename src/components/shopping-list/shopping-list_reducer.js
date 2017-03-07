@@ -24,9 +24,6 @@ export default function(state = initialState, action) {
       list: action.payload.list
     };
 
-  case UPDATE_SHOPPING_LIST_ITEM:
-    return state;
-
   case CLEAR_SHOPPING_LIST_FORM:
   case UPDATE_SHOPPING_LIST_FORM:
     return { ...state, edit: action.payload.edit, item: action.payload.item };

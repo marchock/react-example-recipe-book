@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
-import { fetchRecipe, clearRecipe, deleteIngredient, updateRecipes, saveNewRecipe, fetchNewRecipe } from '../../actions/index';
+import * as actions from './recipes_actions';
 import _ from 'lodash';
 
 import AddIngredientForm from './recipe-ingredient-add-form';
@@ -201,6 +201,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchRecipe, saveNewRecipe, clearRecipe, deleteIngredient, updateRecipes, fetchNewRecipe })(reduxForm({
+export default connect(mapStateToProps, actions)(reduxForm({
   form:'RecipeEdit'
 })(RecipeEdit));

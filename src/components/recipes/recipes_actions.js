@@ -12,7 +12,7 @@ import {
   DELETE_INGREDIENT,
   ADD_INGREDIENT
 
-} from './types';
+} from './recipes_types';
 
 export function updateShoppingList(props) {
   return {

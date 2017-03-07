@@ -1,9 +1,9 @@
-import { expect } from '../test_helper';
+import { expect } from '../../test_helper';
 
-import * as actions from '../../src/actions/index';
-import * as types from '../../src/actions/types';
+import * as actions from '../../../src/components/recipes/recipes_actions';
+import * as types from '../../../src/components/recipes/recipes_types';
 
-describe('Actions', () => {
+describe('Actions Recipes', () => {
   it('should create an action to update shopping list', () => {
     const expectedAction = {
       type: types.UPDATE_SHOPPING_LIST,
