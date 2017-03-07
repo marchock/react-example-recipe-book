@@ -1,5 +1,6 @@
-# React and Redux Example Recipe Book
+# Example Recipe Book
 
+## Using React, Redux and Redux Form
 
 ### Getting Starterd ###
 
@@ -18,10 +19,12 @@ Checkout this repo, install dependencies
 
 ### Testing ###
 
+### using mocha, chai, chai-jquery and enzyme
+
 ```
 
 	> npm test
-	
+
 	> npm run test -- --watch
 
 
