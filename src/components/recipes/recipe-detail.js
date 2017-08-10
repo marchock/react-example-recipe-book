@@ -5,7 +5,7 @@ import * as actions from './recipes_actions';
 
 class RecipeDetail extends Component {
 
-  contextTypes: {
+    contextTypes: {
     router: React.PropTypes.object.isRequired
   }
 

@@ -10,7 +10,7 @@ import reducers from './reducers.js';
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router history={browserHistory} routes={routes} />
-  </Provider>
-  , document.querySelector('.container'));
+    <Provider store={createStoreWithMiddleware(reducers)}>
+        <Router history={browserHistory} routes={routes} />
+    </Provider>
+    , document.querySelector('.container'));
