@@ -1,8 +1,8 @@
 import { expect } from '../../test_helper';
 
-import reducer from '../../../src/components/recipes/recipes_reducer';
-import {RECIPES_INITIAL_STATE} from '../../../src/components/recipes/recipes_initial_state';
-import * as types from '../../../src/components/recipes/recipes_types';
+import reducer from '../../../src/components/recipes/store/recipes_reducer';
+import {RECIPES_INITIAL_STATE} from '../../../src/components/recipes/store/recipes_initial_state';
+import * as types from '../../../src/components/recipes/store/recipes_types';
 
 
 describe('Reducer - Recipes', () => {

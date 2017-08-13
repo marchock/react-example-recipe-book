@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import * as actions from './recipes_actions';
+import * as actions from './store/recipes_actions';
 import _ from 'lodash';
 
 
