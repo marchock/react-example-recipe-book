@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import { expect } from '../../test_helper';
 
-import reducer from '../../../src/components/shopping-list/store/shopping-list_reducer';
+import reducer from '../../../src/components/shopping-list/store/shopping-list.reducer';
 import { initialState } from '../../../src/components/shopping-list/store/shopping-list_initial_state';
-import * as types from '../../../src/components/shopping-list/store/shopping-list_types';
+import * as types from '../../../src/components/shopping-list/store/shopping-list.types';
 
 let dummyData = {
   list: [{

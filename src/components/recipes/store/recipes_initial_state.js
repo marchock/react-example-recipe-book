@@ -8,8 +8,6 @@ export const RECIPE_DEFAULT_STATE = {
     view: '',
 };
 
-console.log(Recipes)
-
 export const RECIPES_INITIAL_STATE = {
     list: Recipes,
     selected: RECIPE_DEFAULT_STATE,

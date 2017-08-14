@@ -3,8 +3,8 @@ import { Field } from 'redux-form';
 
 export const required = value => value ? undefined : 'Required';
 
-export const renderInput = ({ input, name, label, type, meta: { touched, error, warning } }) => (
-    <div className={`form-group ${touched && error ? 'has-danger' : ''}`}>
+export const renderInput = ({ input, col, name, label, type, meta: { touched, error, warning } }) => (
+    <div className={`form-group ${col} ${touched && error ? 'has-danger' : ''}`}>
         <label>{label}</label>
         <div>
             <input className="form-control" {...input} name={name} placeholder={label} type={type}/>
@@ -14,7 +14,6 @@ export const renderInput = ({ input, name, label, type, meta: { touched, error, 
         </div>
     </div>
 );
-
 
 export const renderTextarea = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div className={`form-group ${touched && error ? 'has-danger' : ''}`}>

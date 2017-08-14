@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from './store/shopping-list_actions';
+import * as actions from './store/shopping-list.actions';
 
 class ShoppingListItem extends Component {
 
@@ -8,10 +8,7 @@ class ShoppingListItem extends Component {
     if (this.props.shoppingList.item && index === this.props.shoppingList.item.index) return;
 
     this.props.resetForm();
-    this.props.updateShoppingListForm({
-      shoppingList: this.props.shoppingList,
-      index
-    });
+    this.props.shoppingListUpdate(index);
   }
 
   render() {
