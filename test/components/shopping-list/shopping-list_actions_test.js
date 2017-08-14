@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import { expect } from '../../test_helper';
 
-import * as actions from '../../../src/components/shopping-list/shopping-list_actions';
-import * as types from '../../../src/components/shopping-list/shopping-list_types';
+import * as actions from '../../../src/components/shopping-list/store/shopping-list_actions';
+import * as types from '../../../src/components/shopping-list/store/shopping-list_types';
 
 let dummyData = {
   list: [{

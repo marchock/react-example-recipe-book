@@ -1,5 +1,33 @@
-.btn { margin-right: 10px; }
+.btn {
+    margin-right: 10px;
+}
 
-.col-xs-12 {
-  margin-top: 20px;
+.recipe-list .col-xs-12 {
+    margin: 10px 0;
+}
+
+.recipe-detail {
+    margin-top: 62px;
+}
+
+.recipe-new .col-xs-12 {
+    margin: 10px 0;
+}
+
+.recipe-edit .col-xs-12 {
+    margin: 8px 0;
+}
+
+
+.float-right {
+    float: right;
+}
+
+.text-help {
+    color: red;
+    padding: 5px;
+}
+
+.delete-ingredient {
+    margin: 24px 0;
 }

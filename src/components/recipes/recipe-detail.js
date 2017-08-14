@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as actions from './store/recipes_actions';
+import * as actions from './store/recipe.actions';
 
 class RecipeDetail extends Component {
 
     onDeleteClick(id) {
-        this.props.deleteRecipe({
-            recipes: this.props.recipes,
-            payload: Number(id)
-        });
+        this.props.history.push('/recipes');
+        this.props.recipeDelete(id);
     }
 
     render() {
         const { id } = this.props.match.params;
-        const { img, name, description, ingredients   } = this.props.recipes[id];
+
+        const { img, name, description, ingredients } = this.props.recipeList[id];
 
         const renderIngredients = () => {
             return ingredients.map((ingredient, i) => {
@@ -27,13 +26,13 @@ class RecipeDetail extends Component {
         };
 
         return (
-            <div>
+            <div className="recipe-detail">
                 <div className="row">
                     <div className="col-xs-12">
                         <img
                             src={ img }
                             width="100%"
-                            className="img-responsive"
+                            className="img-responsive img-thumbnail"
                         />
                     </div>
                 </div>
@@ -85,7 +84,7 @@ class RecipeDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-      recipes: state.recipes.recipes
+      recipeList: state.recipe.list,
   };
 }
 

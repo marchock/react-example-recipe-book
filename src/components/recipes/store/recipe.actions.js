@@ -1,18 +1,50 @@
 import _ from 'lodash';
 
 import {
-  UPDATE_SHOPPING_LIST,
-  UPDATE_RECIPES,
-  FETCH_NEW_RECIPE,
-  SAVE_NEW_RECIPE,
-  DELETE_RECIPE,
-  FETCH_RECIPE,
-  SAVE_RECIPE,
-  CLEAR_RECIPE,
-  DELETE_INGREDIENT,
-  ADD_INGREDIENT
+    UPDATE_SHOPPING_LIST,
+    UPDATE_RECIPES,
+    FETCH_NEW_RECIPE,
+    RECIPE_NEW,
+    RECIPE_UPDATE,
+    DELETE_RECIPE,
+    FETCH_RECIPE,
+    SAVE_RECIPE,
+    CLEAR_RECIPE,
+    DELETE_INGREDIENT,
+    ADD_INGREDIENT, RECIPE_UPDATE_STATE, RECIPE_SELECTED, RECIPE_DELETE
 
-} from './recipes_types';
+} from './recipe.types';
+
+
+export function recipeUpdateSate (props) {
+    return {
+        type: RECIPE_UPDATE_STATE,
+        payload: props,
+    }
+}
+
+export function recipeUpdate(payload) {
+    return {
+        type: RECIPE_UPDATE,
+        payload,
+    }
+}
+
+export function recipeDelete(payload) {
+    return {
+        type: RECIPE_DELETE,
+        payload,
+    }
+}
+
+
+export function recipeSelected(payload) {
+    return {
+        type: RECIPE_SELECTED,
+        payload,
+    }
+}
+
 
 export function updateShoppingList(props) {
   return {
@@ -35,10 +67,10 @@ export function fetchNewRecipe(props) {
   }
 }
 
-export function saveNewRecipe(props) {
+export function recipeNew(payload) {
   return {
-    type: SAVE_NEW_RECIPE,
-    payload: props
+    type: RECIPE_NEW,
+    payload
   }
 }
 

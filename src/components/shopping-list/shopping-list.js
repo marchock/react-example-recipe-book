@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import * as actions from './shopping-list_actions';
+import * as actions from './store/shopping-list_actions';
 import ShoppingListItem from './shopping-list-item';
 
 const required = value => value ? undefined : 'Required';

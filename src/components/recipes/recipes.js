@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import RecipeList from './recipe-list';
 import RecipeDetail from './recipe-detail';
 import RecipeEdit from './recipe-edit';
+import RecipeNew from './recipe-new';
 
 class Recipes extends Component {
+
     render() {
         return (
             <div className="row">
-
-                <RecipeList recipes={ this.props.recipes } />
-
+                <div className="col-md-5">
+                    <div className="recipe-list">
+                        <div className="row">
+                            <div className="col-xs-12">
+                                <Link
+                                    to={'/recipes/new'}
+                                    className="btn btn-success"
+                                >
+                                    New Recipe
+                                </Link>
+                            </div>
+                        </div>
+                        <RecipeList recipes={ this.props.recipeList } />
+                    </div>
+                </div>
                 <div className="col-md-7">
                     <Switch>
                         <Route
                             path={`${ this.props.match.url }/new`}
-                            component={ RecipeEdit }
+                            component={ RecipeNew }
                         />
                         <Route
                             exact
@@ -37,7 +51,7 @@ class Recipes extends Component {
 
 function mapStateToProps(state) {
   return {
-      recipes: state.recipes.recipes
+      recipeList: state.recipe.list
   };
 }
 

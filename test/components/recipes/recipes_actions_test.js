@@ -1,7 +1,7 @@
 import { expect } from '../../test_helper';
 
-import * as actions from '../../../src/components/recipes/store/recipes_actions';
-import * as types from '../../../src/components/recipes/store/recipes_types';
+import * as actions from '../../../src/components/recipes/store/recipe.actions';
+import * as types from '../../../src/components/recipes/store/recipe.types';
 
 describe('Actions Recipes', () => {
   it('should create an action to update shopping list', () => {
