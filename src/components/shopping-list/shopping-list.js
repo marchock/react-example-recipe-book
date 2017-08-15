@@ -10,8 +10,7 @@ const required = value => value ? undefined : 'Required';
 class ShoppingList extends Component {
 
     onSubmit(ingredient) {
-        if (this.props.shoppingList.item !== null) {
-            // this.props.updateShoppingListItem({ shoppingList: this.props.shoppingList, ingredient });
+        if (this.props.shoppingList.item) {
             this.props.shoppingListSaveIngredient(ingredient);
             this.resetForm();
         } else {
@@ -28,15 +27,6 @@ class ShoppingList extends Component {
     onClickDelete() {
         this.props.shoppingListDelete(this.props.shoppingList.item.index);
         this.resetForm();
-    }
-
-    onClickItem(index) {
-        if (this.props.shoppingList.item && index === this.props.shoppingList.item.index) return;
-            this.resetForm();
-            this.props.updateShoppingListForm({
-                shoppingList: this.props.shoppingList,
-                index
-            });
     }
 
     resetForm() {
@@ -63,14 +53,36 @@ class ShoppingList extends Component {
             if (this.props.shoppingList.edit) {
                 return (
                     <div>
-                        <button type="submit" className="btn btn-success">Save</button>
-                        <a onClick={this.onClickDelete.bind(this)} className="btn btn-danger" type="button">Delete Item</a>
-                        <a onClick={this.onClickClear.bind(this)} className="btn btn-primary" type="button">Clear</a>
+                        <button
+                            type="submit"
+                            className="btn btn-success"
+                        >
+                            Save
+                        </button>
+                        <a
+                            onClick={this.onClickDelete.bind(this)}
+                            className="btn btn-danger"
+                            type="button"
+                        >
+                            Delete Item
+                        </a>
+                        <a
+                            onClick={this.onClickClear.bind(this)}
+                            className="btn btn-primary"
+                            type="button"
+                        >
+                            Clear
+                        </a>
                     </div>
                 );
             } else {
                 return (
-                    <button className="btn btn-success" type="submit">Add</button>
+                    <button
+                        className="btn btn-success"
+                        type="submit"
+                    >
+                        Add
+                    </button>
                 );
             }
         };
