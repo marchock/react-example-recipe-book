@@ -4,39 +4,33 @@ import * as actions from './store/shopping-list.actions';
 
 class ShoppingListItem extends Component {
 
-  onClickItem(index) {
-    if (this.props.shoppingList.item && index === this.props.shoppingList.item.index) return;
-
-    this.props.resetForm();
-    this.props.shoppingListUpdate(index);
-  }
-
-  render() {
-    const item = this.props.shoppingList.item;
-    const index = this.props.index || 0;
-    let name = '';
-    let amount = '';
-    let styles;
-
-    if (this.props.item) {
-      name = this.props.item.name || '';
-      amount = this.props.item.amount|| '';
+    onClickItem(index) {
+        this.props.resetForm();
+        this.props.shoppingListUpdate(index);
     }
 
-    if (item) {
-      styles = (item.index === index)
-          ? { backgroundColor: 'gray' }
-          :{ backgroundColor: 'white' }
+    renderButtonSelected(index) {
+        if (this.props.shoppingList.item) {
+            if (index === this.props.shoppingList.item.index) {
+                return '--is-selected';
+            } else {
+                return '';
+            }
+        }
     }
 
-    return (
-      <li onClick={this.onClickItem.bind(this, index)}
-          style={styles}
-          className="list-group-item">
-        {name} ({amount})
-      </li>
-    )
-  }
+    render() {
+        const { index, item: { name, amount }} = this.props;
+
+        return (
+            <li
+                onClick={ this.onClickItem.bind(this, index) }
+                className={`${ this.renderButtonSelected(index) } list-group-item ingredient-item`}
+            >
+                { name } ({ amount })
+            </li>
+        )
+    }
 };
 
 function mapStateToProps(state) {

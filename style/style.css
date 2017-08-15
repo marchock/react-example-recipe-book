@@ -30,3 +30,15 @@
 .delete-ingredient {
     margin: 24px 0;
 }
+
+.ingredient-item {
+    cursor: pointer;
+}
+
+.ingredient-item:hover {
+    background-color: #f5f5f5;
+}
+
+.ingredient-item.--is-selected {
+    background-color: #f5f5f5;
+}

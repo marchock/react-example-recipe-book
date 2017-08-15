@@ -49,10 +49,10 @@ class ShoppingList extends Component {
             return shoppingList.list.map((item, i) => {
                 return (
                     <ShoppingListItem
-                        item={item}
-                        selectedItem={shoppingList.item}
-                        index={i}
-                        resetForm={this.resetForm.bind(this)}
+                        item={ item }
+                        selectedItem={ shoppingList.item }
+                        index={ i }
+                        resetForm={ this.resetForm.bind(this) }
                         key={`item-${i}`}
                     />
                 )
