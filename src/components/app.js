@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Recipes from './recipes/recipes';
-import ShoppingList from './shopping-list/shopping-list';
+import Recipes from '../containers/recipes/recipes';
+import ShoppingList from '../containers/shopping-list/shopping-list';
 
 export default class App extends Component {
     render() {

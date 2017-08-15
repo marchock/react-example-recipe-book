@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from './store/recipe.actions';
 
-import { renderInput, renderTextarea, renderIngredients, required } from '../form/form-inputs';
+import { renderInput, renderTextarea, renderIngredients, required } from '../../components/form/form-inputs';
 
 
 

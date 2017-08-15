@@ -1,22 +1,11 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import HeaderLink from './header-link';
 
 const Header = () => {
 
-    const headerLink = (to, label) => {
-        return (
-            <Route children={({ location: { pathname } }) => {
-                return (
-                    <li className={  pathname === to ? 'active' : '' }>
-                        <Link to={ to }>{ label }</Link>
-                    </li>
-                )
-            }}/>
-        )
-    };
-
     return (
-        <nav className="navbar navbar-default">
+        <header className="navbar navbar-default">
             <div className="container-fluid">
                 <div className="navbar-header">
                     <Link
@@ -28,12 +17,12 @@ const Header = () => {
                 </div>
                 <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav">
-                        { headerLink('/recipes', 'Recipes') }
-                        { headerLink('/shopping-list', 'Shopping List') }
+                        <HeaderLink to="/recipes">Recipes</HeaderLink>
+                        <HeaderLink to="/shopping-list">Shopping List</HeaderLink>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </header>
     );
 }
 

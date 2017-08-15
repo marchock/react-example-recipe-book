@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from './store/shopping-list.actions';
 import ShoppingListItem from './shopping-list-item';
-import { renderInput } from '../form/form-inputs';
+import { renderInput } from '../../components/form/form-inputs';
 
 const required = value => value ? undefined : 'Required';
 

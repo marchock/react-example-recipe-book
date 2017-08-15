@@ -1,4 +1,4 @@
-import Recipes from '../../../data/Recipes';
+import Recipes from '../../../data/recipes';
 
 export const RECIPE_DEFAULT_STATE = {
     name: '',

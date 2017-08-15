@@ -3,7 +3,7 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from './store/recipe.actions';
-import {renderIngredients, renderInput, renderTextarea, required} from '../form/form-inputs';
+import {renderIngredients, renderInput, renderTextarea, required} from '../../components/form/form-inputs';
 
 class RecipeEdit extends Component {
 

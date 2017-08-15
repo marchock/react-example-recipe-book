@@ -7,6 +7,8 @@ import RecipeDetail from './recipe-detail';
 import RecipeEdit from './recipe-edit';
 import RecipeNew from './recipe-new';
 
+import Button from '../../components/button/button.component';
+
 class Recipes extends Component {
 
     render() {
@@ -16,12 +18,7 @@ class Recipes extends Component {
                     <div className="recipe-list">
                         <div className="row">
                             <div className="col-xs-12">
-                                <Link
-                                    to={'/recipes/new'}
-                                    className="btn btn-success"
-                                >
-                                    New Recipe
-                                </Link>
+                                <Button href="/recipes/new" danger>New Recipe</Button>
                             </div>
                         </div>
                         <RecipeList recipes={ this.props.recipeList } />
