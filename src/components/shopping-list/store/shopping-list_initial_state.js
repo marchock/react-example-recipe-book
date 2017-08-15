@@ -1,22 +1,7 @@
-export const initialState = { list: [
-  {
-    name: 'yellow or orange peppers',
-    amount: 2
-  },
-  {
-    name: 'tsp chipotle paste',
-    amount: '2'
-  },
-  {
-    name: 'red wine vinegar',
-    amount: '2 tbsp'
-  },
-  {
-    name: 'cocoa powder',
-    amount: '1 tbsp'
-  },
-  {
-    name: 'dried oregano',
-    amount: '1 tbsp'
-  }
-], item: null, edit: false };
+import Ingredients from '../../../data/ingredients';
+
+export const initialState = {
+    list: Ingredients,
+    item: null,
+    edit: false,
+};
