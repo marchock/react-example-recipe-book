@@ -1,5 +1,5 @@
-import React from 'react';
 import { renderComponent, expect } from '../../test_helper';
+import React from 'react';
 import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom';
 import Button from '../../../src/components/button/button';

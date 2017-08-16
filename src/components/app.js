@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Recipes from '../containers/recipes/recipes';
+import Recipes from '../containers/recipes/recipes-page';
 import ShoppingList from '../containers/shopping-list/shopping-list';
 
 export default class App extends Component {
