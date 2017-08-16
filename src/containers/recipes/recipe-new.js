@@ -5,8 +5,8 @@ import * as actions from './store/recipe.actions';
 
 import { renderInput, renderTextarea, renderIngredients, required } from '../../components/form/form-inputs';
 import Button from '../../components/button/button';
-import Row from '../../components/layout/row/row';
-import Col from '../../components/layout/col/col';
+import Row from '../../components/row/row';
+import Col from '../../components/col/col';
 
 class RecipeNew extends Component {
 

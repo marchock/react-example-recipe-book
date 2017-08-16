@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { renderComponent, expect } from '../../../test_helper';
-import Row from '../../../../src/components/layout/row/row';
+import { renderComponent, expect } from '../../test_helper';
+import Row from '../../../src/components/row/row';
 
 describe('<Row />', () => {
     it('exists', () => {

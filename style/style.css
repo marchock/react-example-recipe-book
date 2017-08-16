@@ -1,3 +1,8 @@
+.padding-right {
+    padding-right: 15px;
+}
+
+
 .btn {
     margin-right: 10px;
 }
@@ -6,9 +11,9 @@
     margin: 10px 0;
 }
 
-.recipe-detail {
-    margin-top: 62px;
-}
+/*.recipe-detail {*/
+    /*margin-top: 62px;*/
+/*}*/
 
 .recipe-new .col-xs-12 {
     margin: 10px 0;
@@ -30,6 +35,17 @@
 .delete-ingredient {
     margin: 24px 0;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .ingredient-item {
     cursor: pointer;

@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from './store/recipe.actions';
 import Button from '../../components/button/button';
+import Row from '../../components/row/row';
+import Col from '../../components/col/col';
+import H1 from '../../components/h1/h1';
+import P from '../../components/p/p';
+import Img from '../../components/img/img';
 
 class RecipeDetail extends Component {
 
@@ -28,41 +33,35 @@ class RecipeDetail extends Component {
 
         return (
             <div className="recipe-detail">
-                <div className="row">
-                    <div className="col-xs-12">
-                        <img
-                            src={ img }
-                            width="100%"
-                            className="img-responsive img-thumbnail"
-                        />
-                    </div>
-                </div>
+                <Row>
+                    <Col width={ 12 }>
+                        <Img src={ img } />
+                    </Col>
+                </Row>
 
-                <div className="row">
-                    <div className="col-xs-12">
-                        <h1>{ name }</h1>
-                    </div>
-                    <div className="col-xs-12">
+                <Row>
+                    <Col width={ 12 }>
+                        <H1>{ name }</H1>
+                    </Col>
+                    <Col width={ 12 }>
                         <Button href="/shopping-list" primary>To Shopping List</Button>
                         <Button href={`/recipes/${id}/edit`}>Edit</Button>
                         <Button type="button" danger onClick={this.onDeleteClick.bind(this, id)}>Delete</Button>
-                    </div>
-                </div>
-
+                    </Col>
+                </Row>
                 <hr />
-                <div className="row">
-                    <div className="col-xs-12">
-                        <p>{ description }</p>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-xs-12">
+                <Row>
+                    <Col width={ 12 }>
+                        <P>{ description }</P>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col width={ 12 }>
                         <ul className="list-group">
                             { renderIngredients() }
                         </ul>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </div>
         );
     }

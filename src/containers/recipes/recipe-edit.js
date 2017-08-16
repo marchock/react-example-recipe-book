@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import * as actions from './store/recipe.actions';
 import {renderIngredients, renderInput, renderTextarea, required} from '../../components/form/form-inputs';
 import Button from '../../components/button/button';
+import Row from '../../components/row/row';
+import Col from '../../components/col/col';
+import Img from '../../components/img/img';
 
 class RecipeEdit extends Component {
 
@@ -26,56 +28,54 @@ class RecipeEdit extends Component {
 
         return (
             <div className="recipe-edit">
-                <div className="row">
-                    <div className="col-xs-12">
+                <Row>
+                    <Col width={ 12 }>
                         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                            <div className="row">
-                                <div className="col-xs-12">
+                            <Row>
+                                <Col width={ 12 }>
                                     <Button href={ `/recipes/${this.props.match.params.id}`} danger>Cancel</Button>
                                     <Button type="submit" primary>Save</Button>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-xs-12">
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col width={ 12 }>
                                     <Field name="name"
                                            label="Title"
                                            type="text"
                                            component={ renderInput }
                                            validate={[ required ]} />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-xs-12">
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col width={ 12 }>
                                     <Field name="img"
                                            label="Image Url"
                                            type="text"
                                            component={renderInput}
                                            validate={[ required ]} />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-xs-12">
-                                    <div className="img">
-                                        <img src={ imgSrc } width="100%" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-xs-12">
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col width={ 12 }>
+                                    <Img src={ imgSrc } />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col width={ 12 }>
                                     <Field name="description"
                                            label="Content"
                                            component={renderTextarea}
                                            className="form-control"
                                            validate={[ required ]} />
-                                </div>
-                            </div>
-                            <div className="row">
+                                </Col>
+                            </Row>
+                            <Row>
                                 <hr />
                                 <FieldArray name="ingredients" component={renderIngredients} />
-                            </div>
+                            </Row>
                         </form>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </div>
         );
     }

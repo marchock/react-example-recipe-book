@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Row from '../../components/layout/row/row';
-import Col from '../../components/layout/col/col';
-import H4 from '../../components/layout/h4/h4';
-import P from '../../components/layout/p/p';
-
-
-const Recipe = styled(Link)`${ButtonStyles}`;
-
+import Row from '../../components/row/row';
+import Col from '../../components/col/col';
+import H4 from '../../components/h4/h4';
+import P from '../../components/p/p';
+import Img from '../../components/img/img';
 
 class RecipeLink extends Component {
 
@@ -29,11 +26,7 @@ class RecipeLink extends Component {
                             <P>{ description }</P>
                         </Col>
                         <Col width={ 3 }>
-                            <img
-                                src={ img }
-                                className="img-responsive img-thumbnail"
-                                width="100%"
-                            />
+                            <Img src={ img } />
                         </Col>
                     </Link>
                 );

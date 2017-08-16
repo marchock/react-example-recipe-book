@@ -1,13 +1,10 @@
 import { css } from 'styled-components';
 
 const ListGroupItemStyles = css`
-    position: relative;
-    display: inline-block;
     padding: 10px 15px;
-    margin: -6px 0;
-    background-color: ${props => props.active ? 'red' : '#fff'};
     border: 1px solid #ddd;
-    
+    display: table;
+    flex-direction: column;
     
     &:first-child {
         border-top-left-radius: 4px;
