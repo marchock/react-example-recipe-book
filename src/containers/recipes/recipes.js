@@ -7,7 +7,7 @@ import RecipeDetail from './recipe-detail';
 import RecipeEdit from './recipe-edit';
 import RecipeNew from './recipe-new';
 
-import Button from '../../components/button/button.component';
+import Button from '../../components/button/button';
 
 class Recipes extends Component {
 
@@ -18,7 +18,7 @@ class Recipes extends Component {
                     <div className="recipe-list">
                         <div className="row">
                             <div className="col-xs-12">
-                                <Button href="/recipes/new" danger>New Recipe</Button>
+                                <Button href="/recipes/new" primary>New Recipe</Button>
                             </div>
                         </div>
                         <RecipeList recipes={ this.props.recipeList } />

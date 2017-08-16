@@ -1,25 +1,61 @@
 import { css } from 'styled-components';
 
-const buttonStyles = css`
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 0.25em 2em;
-  text-decoration: none;
-  border-radius: 4px;
-  -webkit-font-smoothing: antialiased;
-  -webkit-touch-callout: none;
-  user-select: none;
-  cursor: pointer;
-  outline: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  border: 2px solid #41addd;
-  color: #41addd;
-  &:active {
-    background: #41addd;
+export const ButtonStyles = css`
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-decoration: none;
     color: #fff;
-  }
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    
+    &:hover { 
+        text-decoration: none;
+        background-color: #286090;
+        border-color: #204d74;
+        color: #fff;
+    }
+    
+    &:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    &.selected { 
+        border-color: rgba(175, 47, 47, 0.2); 
+    }
 `;
 
-export default buttonStyles;
+export const PrimaryStyles = css`
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+
+    &:hover {
+        background-color: #449d44;
+        border-color: #398439;
+    }
+`;
+
+export const DangerStyles = css`
+    background-color: #d9534f;
+    border-color: #d43f3a;
+
+    &:hover {
+        background-color: #c9302c;
+        border-color: #ac2925;
+    }
+`;
+
+

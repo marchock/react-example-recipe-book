@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from './store/recipe.actions';
+import Button from '../../components/button/button';
 
 class RecipeDetail extends Component {
 
@@ -42,24 +43,9 @@ class RecipeDetail extends Component {
                         <h1>{ name }</h1>
                     </div>
                     <div className="col-xs-12">
-                        <Link
-                            to={'/shopping-list'}
-                            className="btn btn-success"
-                        >
-                            To Shopping List
-                        </Link>
-                        <Link
-                            to={`/recipes/${id}/edit`}
-                            className="btn btn-primary"
-                        >
-                            Edit
-                        </Link>
-                        <button
-                            className="btn btn-danger"
-                            onClick={this.onDeleteClick.bind(this, id)}
-                        >
-                            Delete
-                        </button>
+                        <Button href="/shopping-list" primary>To Shopping List</Button>
+                        <Button href={`/recipes/${id}/edit`}>Edit</Button>
+                        <Button type="button" danger onClick={this.onDeleteClick.bind(this, id)}>Delete</Button>
                     </div>
                 </div>
 

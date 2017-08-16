@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from './store/recipe.actions';
 import {renderIngredients, renderInput, renderTextarea, required} from '../../components/form/form-inputs';
+import Button from '../../components/button/button';
 
 class RecipeEdit extends Component {
 
@@ -30,13 +31,8 @@ class RecipeEdit extends Component {
                         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                             <div className="row">
                                 <div className="col-xs-12">
-                                    <Link
-                                        to={ `/recipes/${this.props.match.params.id}` }
-                                        className="btn btn-danger float-right"
-                                    >
-                                        Cancel
-                                    </Link>
-                                    <button type="submit" className="btn btn-success float-right">Save</button>
+                                    <Button href={ `/recipes/${this.props.match.params.id}`} danger>Cancel</Button>
+                                    <Button type="submit" primary>Save</Button>
                                 </div>
                             </div>
                             <div className="row">

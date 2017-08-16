@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import Button from '../button/button';
 
 export const required = value => value ? undefined : 'Required';
 
@@ -57,19 +58,13 @@ export const renderIngredients = ({ fields, meta: { error, submitFailed } }) => 
                     </div>
                     <div className="col-md-2">
                         <div className="form-group">
-                            <button
-                                type="submit"
-                                className="btn btn-danger delete-ingredient"
-                                onClick={() => fields.remove(index)}
-                            >-</button>
+                            <Button type="submit" danger onClick={() => fields.remove(index)}>-</Button>
                         </div>
                     </div>
                 </div>
             )}
 
-            <button className="btn btn-primary float-right" type="button" onClick={ addNewIngredient }>
-                Add new ingredient
-            </button>
+            <Button type="button" onClick={ addNewIngredient }>Add new ingredient</Button>
             {submitFailed &&
             error &&
             <span>

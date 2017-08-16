@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import * as actions from './store/shopping-list.actions';
 import ShoppingListItem from './shopping-list-item';
 import { renderInput } from '../../components/form/form-inputs';
+import Button from '../../components/button/button';
 
 const required = value => value ? undefined : 'Required';
 
@@ -53,36 +54,25 @@ class ShoppingList extends Component {
             if (this.props.shoppingList.edit) {
                 return (
                     <div>
-                        <button
-                            type="submit"
-                            className="btn btn-success"
-                        >
-                            Save
-                        </button>
-                        <a
-                            onClick={this.onClickDelete.bind(this)}
-                            className="btn btn-danger"
+                        <Button type="submit" primary>Save</Button>
+                        <Button
                             type="button"
+                            onClick={this.onClickDelete.bind(this)}
+                            danger
                         >
                             Delete Item
-                        </a>
-                        <a
-                            onClick={this.onClickClear.bind(this)}
-                            className="btn btn-primary"
+                        </Button>
+                        <Button
                             type="button"
+                            onClick={this.onClickClear.bind(this)}
                         >
                             Clear
-                        </a>
+                        </Button>
                     </div>
                 );
             } else {
                 return (
-                    <button
-                        className="btn btn-success"
-                        type="submit"
-                    >
-                        Add
-                    </button>
+                    <Button type="submit" primary>Add</Button>
                 );
             }
         };

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import * as actions from './store/recipe.actions';
 
 import { renderInput, renderTextarea, renderIngredients, required } from '../../components/form/form-inputs';
+import Button from '../../components/button/button';
 
 
 
@@ -22,8 +23,8 @@ class RecipeNew extends Component {
             <form className="recipe-new" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <div className="row">
                     <div className="col-xs-12">
-                        <Link to="/recipes" className="btn btn-danger float-right">Cancel</Link>
-                        <button type="submit" className="btn btn-success float-right">Save</button>
+                        <Button href="/recipes" danger>Cancel</Button>
+                        <Button type="submit" primary>Save</Button>
                     </div>
                 </div>
                 <div className="row">
