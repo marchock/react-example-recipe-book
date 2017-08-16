@@ -11,14 +11,15 @@ import Row from '../../components/layout/row/row';
 import Col from '../../components/layout/col/col';
 
 class Recipes extends Component {
-
     render() {
         return (
             <Row>
                 <Col width={ 5 }>
                     <Row>
                         <Button href="/recipes/new" primary>New Recipe</Button>
-                        <RecipeList recipes={ this.props.recipeList } />
+                        <RecipeList
+                            recipes={ this.props.recipeList }
+                        />
                     </Row>
                 </Col>
 

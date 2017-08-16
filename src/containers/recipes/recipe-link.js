@@ -4,23 +4,23 @@ import Row from '../../components/layout/row/row';
 import Col from '../../components/layout/col/col';
 import H4 from '../../components/layout/h4/h4';
 import P from '../../components/layout/p/p';
-import ListGroupItem from '../../components/list-group-item/list-group-item';
 
-class RecipeList extends Component {
+
+const Recipe = styled(Link)`${ButtonStyles}`;
+
+
+class RecipeLink extends Component {
 
     renderRecipeList() {
         const { recipes } = this.props;
 
         if (this.props.recipes) {
-            console.log(this.props)
-
             return recipes.map(( { name, description, img }, index) => {
                 return (
-                    <ListGroupItem
-                        active={ index === this.props.selectedRecipeID }
+                    <Link
                         to={`/recipes/${index}`}
-                        key={index}
-                        className="list-group-item"
+                        key={`recipes-${index}`}
+                        className="recipe-list list-group-item clearfix"
                     >
                         <Col width={ 12 }>
                             <H4>{ name }</H4>
@@ -35,7 +35,7 @@ class RecipeList extends Component {
                                 width="100%"
                             />
                         </Col>
-                    </ListGroupItem>
+                    </Link>
                 );
             });
 
@@ -58,6 +58,3 @@ class RecipeList extends Component {
 }
 
 export default RecipeList;
-
-
-
