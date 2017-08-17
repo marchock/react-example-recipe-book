@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 export const ButtonStyles = css`
     display: inline-block;
-    padding: 6px 12px;
+    padding: 10px 12px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
@@ -18,14 +18,28 @@ export const ButtonStyles = css`
     border-radius: 4px;
     text-decoration: none;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    background-color:  ${ props => {
+        if (props['data-primary']) {
+            return '#5cb85c';
+        } else if (props['data-danger']) {
+            return '#d9534f';
+        } else {
+            return '#2e6da4';
+        }
+    }};
     
     &:hover { 
         text-decoration: none;
-        background-color: #286090;
-        border-color: #204d74;
         color: #fff;
+        background-color:  ${ props => {
+            if (props['data-primary']) {
+                return '#449d44';
+            } else if (props['data-danger']) {
+                return '#c9302c';
+            } else {
+                return '#286090';
+            }
+        }};
     }
     
     &:focus {
@@ -37,25 +51,3 @@ export const ButtonStyles = css`
         border-color: rgba(175, 47, 47, 0.2); 
     }
 `;
-
-export const PrimaryStyles = css`
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-
-    &:hover {
-        background-color: #449d44;
-        border-color: #398439;
-    }
-`;
-
-export const DangerStyles = css`
-    background-color: #d9534f;
-    border-color: #d43f3a;
-
-    &:hover {
-        background-color: #c9302c;
-        border-color: #ac2925;
-    }
-`;
-
-

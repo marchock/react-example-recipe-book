@@ -18,10 +18,10 @@ class RecipeList extends Component {
 
         return (
             <Col width={ 5 }>
-                <Row className="margin-vertical">
+                <Row margin padding>
                     <Button href="/recipes/new" primary>New Recipe</Button>
                 </Row>
-                <Row>
+                <Row padding>
                     <Ul>
                         { recipes.map(( recipe, index) => {
                             return (

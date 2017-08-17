@@ -9,15 +9,21 @@ describe('<Button/>', function () {
 
     let component;
 
-    beforeEach(() => {
+    it("should render an <a> tag if a link is specified", () => {
+        component = mount(
+            <MemoryRouter>
+                <Button href="/" />
+            </MemoryRouter>
+        );
+        expect(component.find('a').length).to.equal(1);
+    });
+
+    it("should render an <button> tag if a type is specified", () => {
         component = mount(
             <MemoryRouter>
                 <Button type="button" />
             </MemoryRouter>
         );
-    });
-
-    it('exists', function () {
-        expect(component.find('button').exists()).to.be.true;
+        expect(component.find('button').length).to.equal(1);
     });
 });

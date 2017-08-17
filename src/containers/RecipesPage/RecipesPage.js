@@ -7,30 +7,33 @@ import RecipeDetail from './recipe-detail';
 import RecipeEdit from './recipe-edit';
 import RecipeNew from './recipe-new';
 import Col from '../../components/Col/Col';
+import Row from '../../components/Row/Row';
 
 class RecipesPage extends Component {
     render() {
         return (
-            <div>
+            <Row>
                 <RecipeList recipes={ this.props.recipeList }/>
                 <Col width={ 7 }>
-                    <Switch>
-                        <Route
-                            path={`${ this.props.match.url }/new`}
-                            component={ RecipeNew }
-                        />
-                        <Route
-                            exact
-                            path={`${ this.props.match.url }/:id`}
-                            component={ RecipeDetail }
-                        />
-                        <Route
-                            path={`${ this.props.match.url }/:id/edit`}
-                            component={ RecipeEdit }
-                        />
-                    </Switch>
+                    <Row padding>
+                        <Switch>
+                            <Route
+                                path={`${ this.props.match.url }/new`}
+                                component={ RecipeNew }
+                            />
+                            <Route
+                                exact
+                                path={`${ this.props.match.url }/:id`}
+                                component={ RecipeDetail }
+                            />
+                            <Route
+                                path={`${ this.props.match.url }/:id/edit`}
+                                component={ RecipeEdit }
+                            />
+                        </Switch>
+                    </Row>
                 </Col>
-            </div>
+            </Row>
         );
     }
 }

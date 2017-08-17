@@ -2,7 +2,7 @@
 // import { expect } from '../../test_helper';
 //
 // import reducer from '../../../src/components/ShoppingListPage/store/ShoppingListPage.reducer';
-// import { initialState } from '../../../src/components/shopping-list/store/shopping-list_initial_state';
+// import { initialState } from '../../../src/components/ShoppingListPage/store/shopping-list_initial_state';
 // import * as types from '../../../src/components/ShoppingListPage/store/ShoppingListPage.types';
 //
 // let dummyData = {

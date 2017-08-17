@@ -1,34 +1,31 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import Button from '../Button/Button';
+import Col from '../Col/Col';
+import FormErrorMessage from './ErrorMessage/ErrorMessage';
+import Fieldset from './Fieldset/Fieldset';
+import Input from './Input/Input';
+import Label from './Label/Label';
+import Textarea from './Textarea/Textarea';
+import Row from '../Row/Row';
 
 export const required = value => value ? undefined : 'Required';
 
-export const renderInput = ({ input, col, name, label, type, meta: { touched, error, warning } }) => (
-    <div className={`form-group ${col} ${touched && error ? 'has-danger' : ''}`}>
-        <label>{label}</label>
-        <div>
-            <input className="form-control" {...input} name={name} placeholder={label} type={type}/>
-            <div className="text-help">
-                {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-            </div>
-        </div>
-    </div>
+export const renderInput = ({ input, name, label, placeholder, type, meta }) => (
+    <Fieldset>
+        <Label show={ label }>{ label }</Label>
+        <Input {...input} name={name} label={label} placeholder={placeholder} type={type} meta={ meta } />
+        <FormErrorMessage meta={ meta } />
+    </Fieldset>
 );
 
-export const renderTextarea = ({ input, label, type, meta: { touched, error, warning } }) => (
-    <div className={`form-group ${touched && error ? 'has-danger' : ''}`}>
-        <label>{label}</label>
-        <div>
-            <textarea className="form-control" {...input} placeholder={label} type={type} rows="6" />
-            <div className="text-help">
-                {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-            </div>
-        </div>
-    </div>
+export const renderTextarea = ({ input, label, type, meta}) => (
+    <Fieldset>
+        <Label>{ label }</Label>
+        <Textarea className="form-control" {...input} placeholder={label} type={type} rows="6" meta={meta} />
+        <FormErrorMessage meta={ meta } />
+    </Fieldset>
 );
-
-
 
 export const renderIngredients = ({ fields, meta: { error, submitFailed } }) => {
 
@@ -37,40 +34,37 @@ export const renderIngredients = ({ fields, meta: { error, submitFailed } }) => 
     };
 
     return (
-        <div>
+        <Row>
             {fields.map((ingredient, index) =>
-                <div className="form-group row" key={index}>
-                    <div className="col-md-5">
+                <Row key={index}>
+                    <Col width={ 5 }>
                         <Field
                             name={`${ingredient}.name`}
                             type="text"
-                            label="Ingredient name"
+                            placeholder="Ingredient name"
                             component={ renderInput }
                             validate={[ required ]} />
-                    </div>
-                    <div className="col-md-5">
+                    </Col>
+                    <Col width={ 1 }>&nbsp;</Col>
+                    <Col width={ 5 }>
                         <Field
                             name={`${ingredient}.amount`}
                             type="text"
-                            label="Amount"
+                            placeholder="Amount"
                             component={ renderInput }
                             validate={[ required ]} />
-                    </div>
-                    <div className="col-md-2">
-                        <div className="form-group">
-                            <Button type="submit" danger onClick={() => fields.remove(index)}>-</Button>
-                        </div>
-                    </div>
-                </div>
+                    </Col>
+                    <Col width={ 1 }>
+                        <Fieldset>
+                            <Button type="submit" danger onClick={() => fields.remove(index)} right>-</Button>
+                        </Fieldset>
+                    </Col>
+                </Row>
             )}
 
-            <Button type="button" onClick={ addNewIngredient }>Add new ingredient</Button>
-            {submitFailed &&
-            error &&
-            <span>
-             {error}
-            </span>}
-        </div>
-    )
-}
-
+            <Row className="flex-end">
+                <Button type="button" onClick={ addNewIngredient }>Add new ingredient</Button>
+            </Row>
+        </Row>
+    );
+};

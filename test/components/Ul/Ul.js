@@ -1,23 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { renderComponent, expect } from '../../test_helper';
-import Col from '../../../src/components/Col/Col';
+import Ul from '../../../src/components/Ul/Ul';
 
-describe('<Col />', () => {
+describe('<Ul />', () => {
     let component;
     const text = 'This is a test';
-    const number = 12;
 
     beforeEach(() => {
         component = shallow(
-            <Col width={ number }>
+            <Ul>
                 { text }
-            </Col>
+            </Ul>
         );
-    });
-
-    it('should render a prop', () => {
-        expect(component.prop('width')).to.equal(number);
     });
 
     it('should render its text', () => {

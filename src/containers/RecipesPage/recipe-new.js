@@ -6,7 +6,6 @@ import * as actions from './store/recipe.actions';
 import { renderInput, renderTextarea, renderIngredients, required } from '../../components/Form/FormInputs';
 import Button from '../../components/Button/Button';
 import Row from '../../components/Row/Row';
-import Col from '../../components/Col/Col';
 
 class RecipeNew extends Component {
 
@@ -19,50 +18,46 @@ class RecipeNew extends Component {
         const { handleSubmit } = this.props;
 
         return (
-            <form className="recipe-new" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <Row className="margin-vertical flex-end child-spacing">
+            <form
+                className="recipe-new"
+                onSubmit={handleSubmit(this.onSubmit.bind(this))}
+            >
+                <Row className="flex-end child-spacing" margin>
                     <Button type="submit" primary>Save</Button>
                     <Button href="/recipes" danger>Cancel</Button>
                 </Row>
                 <Row>
-                    <Col width={ 12 }>
-                        <Field name="name"
-                               label="Title"
-                               type="text"
-                               component={ renderInput }
-                               validate={[ required ]} />
-                    </Col>
+                    <Field
+                        name="name"
+                        label="Title"
+                        type="text"
+                        component={ renderInput }
+                        validate={[ required ]}
+                    />
                 </Row>
                 <Row>
-                    <Col width={ 12 }>
-                        <Field name="img"
-                               label="Image Url"
-                               type="text"
-                               component={renderInput}
-                               validate={[ required ]} />
-                    </Col>
+                    <Field
+                        name="img"
+                        label="Image Url"
+                        type="text"
+                        component={renderInput}
+                        validate={[ required ]}
+                    />
                 </Row>
                 <Row>
-                    <Col width={ 12 }>
-                        <div className="img">
-                            <img src={ this.props.formRecipeNewImage } width="100%" />
-                        </div>
-                    </Col>
+                    <Field
+                        name="description"
+                        label="Content"
+                        component={renderTextarea}
+                        className="form-control"
+                        validate={[ required ]}
+                    />
                 </Row>
                 <Row>
-                    <Col width={ 12 }>
-                        <Field name="description"
-                               label="Content"
-                               component={renderTextarea}
-                               className="form-control"
-                               validate={[ required ]} />
-                    </Col>
+                    <hr width="100%" />
                 </Row>
                 <Row>
-                    <Col width={ 12 }>
-                        <hr />
-                        <FieldArray name="ingredients" component={renderIngredients} />
-                    </Col>
+                    <FieldArray name="ingredients" component={renderIngredients} />
                 </Row>
             </form>
         );

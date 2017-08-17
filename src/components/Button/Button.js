@@ -14,31 +14,15 @@ const Button = (props) => {
          */
         const ButtonTemplate = styled(Link)`${ButtonStyles}`;
 
-        if (primary) {
-            const Button = ButtonTemplate.extend`${PrimaryStyles}`;
-
-            return (
-                <Button to={ href }>
-                    { Children.toArray(props.children) }
-                </Button>
-            )
-        }
-
-        if (danger) {
-            const Button = ButtonTemplate.extend`${DangerStyles}`;
-
-            return (
-                <Button to={ href }>
-                    { Children.toArray(props.children) }
-                </Button>
-            )
-        }
-
         return (
-            <ButtonTemplate to={ href }>
+            <ButtonTemplate
+                to={ href }
+                data-primary={ primary || false }
+                data-danger={ danger || false }
+            >
                 { Children.toArray(props.children) }
             </ButtonTemplate>
-        )
+        );
     }
 
 
@@ -48,28 +32,13 @@ const Button = (props) => {
          */
         const ButtonTemplate = styled.button`${ButtonStyles}`;
 
-        if (primary) {
-            const Button = ButtonTemplate.extend`${PrimaryStyles}`;
-
-            return (
-                <Button e type={ type } onClick={ props.onClick }>
-                    { Children.toArray(props.children) }
-                </Button>
-            )
-        }
-
-        if (danger) {
-            const Button = ButtonTemplate.extend`${DangerStyles}`;
-
-            return (
-                <Button e type={ type } onClick={ props.onClick }>
-                    { Children.toArray(props.children) }
-                </Button>
-            )
-        }
-
         return (
-            <ButtonTemplate type={ type } onClick={ props.onClick }>
+            <ButtonTemplate
+                type={ type }
+                onClick={ props.onClick }
+                data-primary={ primary || false }
+                data-danger={ danger || false }
+            >
                 { Children.toArray(props.children) }
             </ButtonTemplate>
         )

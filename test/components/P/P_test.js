@@ -4,10 +4,18 @@ import { renderComponent, expect } from '../../test_helper';
 import P from '../../../src/components/P/P';
 
 describe('<P />', () => {
-    it('exists', () => {
-        const component = shallow(
-            <P />
+    let component;
+    const text = 'This is a test';
+
+    beforeEach(() => {
+        component = shallow(
+            <P>
+                { text }
+            </P>
         );
-        expect(component.find('p').exists()).to.be.true;
+    });
+
+    it('should render its text', () => {
+        expect(component.contains(text)).to.be.true;
     });
 });
