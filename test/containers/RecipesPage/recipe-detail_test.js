@@ -1,15 +1,15 @@
 // import { renderComponent , expect } from '../../test_helper';
-// import ShoppingListItem from '../../../src/components/ShoppingListPage/ShoppingListPage-item';
+// import RecipeDetail from '../../../src/components/RecipesPage/recipe-detail';
 //
-// describe('ShoppingListItem' , () => {
-//
+// describe('Recipe Detail' , () => {
 //   let component;
 //
 //   beforeEach(() => {
-//     component = renderComponent(ShoppingListItem);
+//     component = renderComponent(RecipeDetail);
 //   });
 //
 //   it('shows', () => {
 //     expect(component).to.exist;
 //   });
+//
 // });

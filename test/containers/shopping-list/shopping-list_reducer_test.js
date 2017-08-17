@@ -1,9 +1,9 @@
 // import _ from 'lodash';
 // import { expect } from '../../test_helper';
 //
-// import reducer from '../../../src/components/shopping-list/store/shopping-list.reducer';
+// import reducer from '../../../src/components/ShoppingListPage/store/ShoppingListPage.reducer';
 // import { initialState } from '../../../src/components/shopping-list/store/shopping-list_initial_state';
-// import * as types from '../../../src/components/shopping-list/store/shopping-list.types';
+// import * as types from '../../../src/components/ShoppingListPage/store/ShoppingListPage.types';
 //
 // let dummyData = {
 //   list: [{

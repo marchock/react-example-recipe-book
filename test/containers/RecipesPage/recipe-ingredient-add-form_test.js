@@ -1,12 +1,11 @@
 // import { renderComponent , expect } from '../../test_helper';
-// import ShoppingListItem from '../../../src/components/ShoppingListPage/ShoppingListPage-item';
+// import RecipeForm from '../../../src/components/RecipesPage/recipe-ingredient-add-Form';
 //
-// describe('ShoppingListItem' , () => {
-//
+// describe('Recipe Ingredient Add Form' , () => {
 //   let component;
 //
 //   beforeEach(() => {
-//     component = renderComponent(ShoppingListItem);
+//     component = renderComponent(RecipeForm);
 //   });
 //
 //   it('shows', () => {

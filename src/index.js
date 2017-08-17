@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import App from './components/app';
-import Header from './components/header/header';
+import Header from './components/Header/Header';
 import reducers from './reducers';
 
 import createHistory from 'history/createBrowserHistory'

@@ -1,12 +1,11 @@
 // import { renderComponent , expect } from '../../test_helper';
-// import ShoppingListItem from '../../../src/components/ShoppingListPage/ShoppingListPage-item';
+// import RecipeList from '../../../src/components/RecipesPage/recipe-list';
 //
-// describe('ShoppingListItem' , () => {
-//
+// describe('Recipe ListItem' , () => {
 //   let component;
 //
 //   beforeEach(() => {
-//     component = renderComponent(ShoppingListItem);
+//     component = renderComponent(RecipeList);
 //   });
 //
 //   it('shows', () => {

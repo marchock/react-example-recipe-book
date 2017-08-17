@@ -1,5 +1,5 @@
 // import { renderComponent , expect } from '../../test_helper';
-// import ShoppingList from '../../../src/components/shopping-list/shopping-list';
+// import ShoppingList from '../../../src/components/ShoppingListPage/ShoppingListPage';
 //
 // describe('Shopping List' , () => {
 //

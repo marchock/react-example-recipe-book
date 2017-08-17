@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 import ListItemStyles from './ListItem.styles';
-import Col from '../col/col';
-import H4 from '../h4/h4';
-import Img from '../img/img';
-import P from '../p/p';
+import Col from '../Col/Col';
+import H4 from '../H4/H4';
+import Img from '../Img/Img';
+import P from '../P/P';
 
 const ListItemRecipe = ({ index, recipe }) => {
     const { name, description, img } = recipe;
