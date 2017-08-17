@@ -2,39 +2,29 @@
     padding-right: 15px;
 }
 
-
-.btn {
-    margin-right: 10px;
+.cb {
+    clear: both;
 }
 
-.recipe-list .col-xs-12 {
-    margin: 10px 0;
+.margin-vertical {
+    margin: 15px 0;
+    display: flex;
 }
 
-/*.recipe-detail {*/
-    /*margin-top: 62px;*/
-/*}*/
-
-.recipe-new .col-xs-12 {
-    margin: 10px 0;
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.recipe-edit .col-xs-12 {
-    margin: 8px 0;
+.child-spacing > * {
+    margin-left: 15px;
 }
 
-.float-right {
-    float: right;
+.top-spacing {
+    margin-top: 63px;
 }
 
-.text-help {
-    color: red;
-    padding: 5px;
-}
 
-.delete-ingredient {
-    margin: 24px 0;
-}
 
 
 

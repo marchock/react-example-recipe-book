@@ -1,57 +1,38 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 import Row from '../../components/row/row';
-import Col from '../../components/col/col';
-import H4 from '../../components/h4/h4';
 import P from '../../components/p/p';
-import ListGroupItem from '../../components/list-group-item/list-group-item';
-import Img from '../../components/img/img';
+import ListItemRecipe from '../../components/ListItem/ListItemRecipe';
+import Ul from '../../components/Ul/Ul';
+import Col from '../../components/col/col';
+import Button from '../../components/button/button';
 
 class RecipeList extends Component {
 
-    renderRecipeList() {
+    render() {
         const { recipes } = this.props;
 
-        if (this.props.recipes) {
-            return recipes.map(( { name, description, img }, index) => {
-                return (
-                    <ListGroupItem
-                        active={ index === this.props.selectedRecipeID }
-                        to={`/recipes/${index}`}
-                        key={index}
-                    >
-                        <Col width={ 12 }>
-                            <H4>{ name }</H4>
-                        </Col>
-                        <Col width={ 9 }>
-                            <P className="padding-right">{ description }</P>
-                        </Col>
-                        <Col width={ 3 }>
-                            <Img src={ img } />
-                        </Col>
-                    </ListGroupItem>
-                );
-            });
-
-        } else {
-            return <P>No Recipes</P>;
+        if (!this.props.recipes) {
+            return <P>No Recipes</P>
         }
-    }
 
-    render() {
         return (
-            <Row>
-                <Col width={ 12 }>
-                    <ul className="list-group">
-                        { this.renderRecipeList() }
-                    </ul>
-                </Col>
-            </Row>
+            <Col width={ 5 }>
+                <Row className="margin-vertical">
+                    <Button href="/recipes/new" primary>New Recipe</Button>
+                </Row>
+                <Row>
+                    <Ul>
+                        { recipes.map(( recipe, index) => {
+                            return (
+                                <ListItemRecipe recipe={recipe} index={index} key={index}/>
+                            )})
+                        }
+                    </Ul>
+                </Row>
+            </Col>
         );
     }
 }
 
 export default RecipeList;
-
-
-

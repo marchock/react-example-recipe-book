@@ -27,56 +27,48 @@ class RecipeEdit extends Component {
         const imgSrc = this.props.recipe ? this.props.recipe.img : '';
 
         return (
-            <div className="recipe-edit">
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                <Row className="margin-vertical flex-end child-spacing">
+                    <Button href={ `/recipes/${this.props.match.params.id}`} danger>Cancel</Button>
+                    <Button type="submit" primary>Save</Button>
+                </Row>
                 <Row>
                     <Col width={ 12 }>
-                        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                            <Row>
-                                <Col width={ 12 }>
-                                    <Button href={ `/recipes/${this.props.match.params.id}`} danger>Cancel</Button>
-                                    <Button type="submit" primary>Save</Button>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col width={ 12 }>
-                                    <Field name="name"
-                                           label="Title"
-                                           type="text"
-                                           component={ renderInput }
-                                           validate={[ required ]} />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col width={ 12 }>
-                                    <Field name="img"
-                                           label="Image Url"
-                                           type="text"
-                                           component={renderInput}
-                                           validate={[ required ]} />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col width={ 12 }>
-                                    <Img src={ imgSrc } />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col width={ 12 }>
-                                    <Field name="description"
-                                           label="Content"
-                                           component={renderTextarea}
-                                           className="form-control"
-                                           validate={[ required ]} />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <hr />
-                                <FieldArray name="ingredients" component={renderIngredients} />
-                            </Row>
-                        </form>
+                        <Field name="name"
+                               label="Title"
+                               type="text"
+                               component={ renderInput }
+                               validate={[ required ]} />
                     </Col>
                 </Row>
-            </div>
+                <Row>
+                    <Col width={ 12 }>
+                        <Field name="img"
+                               label="Image Url"
+                               type="text"
+                               component={renderInput}
+                               validate={[ required ]} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col width={ 12 }>
+                        <Img src={ imgSrc } />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col width={ 12 }>
+                        <Field name="description"
+                               label="Content"
+                               component={renderTextarea}
+                               className="form-control"
+                               validate={[ required ]} />
+                    </Col>
+                </Row>
+                <Row>
+                    <hr />
+                    <FieldArray name="ingredients" component={renderIngredients} />
+                </Row>
+            </form>
         );
     }
 }

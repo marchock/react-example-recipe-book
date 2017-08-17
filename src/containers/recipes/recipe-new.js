@@ -20,11 +20,9 @@ class RecipeNew extends Component {
 
         return (
             <form className="recipe-new" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <Row>
-                    <Col width={ 12 }>
-                        <Button href="/recipes" danger>Cancel</Button>
-                        <Button type="submit" primary>Save</Button>
-                    </Col>
+                <Row className="margin-vertical flex-end child-spacing">
+                    <Button type="submit" primary>Save</Button>
+                    <Button href="/recipes" danger>Cancel</Button>
                 </Row>
                 <Row>
                     <Col width={ 12 }>

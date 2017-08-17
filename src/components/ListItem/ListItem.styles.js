@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
 
-const ListGroupItemStyles = css`
+const ListItemStyles = css`
     padding: 10px 15px;
     border: 1px solid #ddd;
-    display: table;
-    flex-direction: column;
+    margin-bottom: -1px;
     
     &:first-child {
         border-top-left-radius: 4px;
@@ -22,4 +21,4 @@ const ListGroupItemStyles = css`
 }
 `;
 
-export default ListGroupItemStyles;
+export default ListItemStyles;

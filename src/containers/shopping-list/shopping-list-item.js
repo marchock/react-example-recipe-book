@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from './store/shopping-list.actions';
+import List from '../../components/ListItem/ListItem';
 
 class ShoppingListItem extends Component {
 
@@ -23,12 +24,12 @@ class ShoppingListItem extends Component {
         const { index, item: { name, amount }} = this.props;
 
         return (
-            <li
+            <List
                 onClick={ this.onClickItem.bind(this, index) }
-                className={`${ this.renderButtonSelected(index) } list-group-item ingredient-item`}
+                className={`${ this.renderButtonSelected(index) }`}
             >
                 { name } ({ amount })
-            </li>
+            </List>
         )
     }
 };

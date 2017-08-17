@@ -6,20 +6,13 @@ import RecipeList from './recipe-list';
 import RecipeDetail from './recipe-detail';
 import RecipeEdit from './recipe-edit';
 import RecipeNew from './recipe-new';
-import Button from '../../components/button/button';
 import Col from '../../components/col/col';
 
 class Recipes extends Component {
     render() {
         return (
             <div>
-                <Col width={ 5 }>
-                    <Button href="/recipes/new" primary>New Recipe</Button>
-                    <RecipeList
-                        recipes={ this.props.recipeList }
-                    />
-                </Col>
-
+                <RecipeList recipes={ this.props.recipeList }/>
                 <Col width={ 7 }>
                     <Switch>
                         <Route
