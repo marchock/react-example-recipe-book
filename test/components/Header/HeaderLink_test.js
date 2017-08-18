@@ -2,7 +2,7 @@ import React from 'react';
 import { renderComponent, expect } from '../../test_helper';
 import { mount, render, shallow } from 'enzyme'
 import { Link, Route, MemoryRouter } from 'react-router-dom';
-import HeaderLink from '../../../src/components/Header/HeaderLink';
+import HeaderLink from '../../../src/components/Header/HeaderLink/HeaderLink';
 
 
 describe('<HeaderLink />', function () {
