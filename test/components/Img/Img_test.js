@@ -11,3 +11,19 @@ describe('<Img />', () => {
         expect(component.find('img').exists()).to.be.true;
     });
 });
+
+
+describe('<Img />', () => {
+    let component;
+    const src = 'image.png';
+
+    beforeEach(() => {
+        component = shallow(
+            <Img src={ src } />
+        );
+    });
+
+    it('should render a prop', () => {
+        expect(component.prop('src')).to.equal(src);
+    });
+});

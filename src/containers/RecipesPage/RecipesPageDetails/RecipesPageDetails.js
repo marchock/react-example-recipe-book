@@ -20,7 +20,7 @@ const RowAnimation = Row.extend`
 class RecipePageDetails extends Component {
 
     onDeleteClick(id) {
-        this.props.history.push('/RecipesPage');
+        this.props.history.push('/recipes');
         this.props.recipeDelete(id);
     }
 

@@ -11,7 +11,6 @@ import Ul from '../../components/Ul/Ul';
 import ListItemRecipe from '../../components/ListItem/ListItemRecipe';
 import Button from '../../components/Button/Button';
 
-
 class RecipesPage extends Component {
     render() {
 
