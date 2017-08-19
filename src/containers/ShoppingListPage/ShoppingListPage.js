@@ -5,6 +5,9 @@ import * as actions from './store/shopping-list.actions';
 import ShoppingListItem from './shopping-list-item';
 import { renderInput } from '../../components/Form/FormInputs';
 import Button from '../../components/Button/Button';
+import Row from '../../components/Row/Row';
+import Col from '../../components/Col/Col';
+import Ul from '../../components/Ul/Ul';
 
 const required = value => value ? undefined : 'Required';
 
@@ -80,42 +83,41 @@ class ShoppingListPage extends Component {
         const { error, handleSubmit, pristine, reset, submitting } = this.props;
 
         return (
-            <div className="row">
-                <div className="col-xs-10">
-                    <div className="row">
-                        <div className="col-xs-12">
-                            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                                <div className="row">
-                                    <Field name="name"
-                                        type="text"
-                                        col="col-sm-5"
-                                        label="Name"
-                                        component={renderInput}
-                                        validate={[ required ]}
-                                    />
+            <Row>
+                <Col width={ 10 }>
+                    <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                        <Row margin>
+                            <Col width={ 3 }>
+                                <Field
+                                    name="name"
+                                    type="text"
+                                    col="col-sm-5"
+                                    label="Name"
+                                    component={renderInput}
+                                    validate={[ required ]}
+                                />
+                            </Col>
+                            <Col width={ 3 }>
+                                <Field
+                                    name="amount"
+                                    type="text"
+                                    col="col-sm-2"
+                                    label="Amount"
+                                    component={renderInput}
+                                    validate={[ required ]}
+                                />
+                            </Col>
+                        </Row>
+                        <Row margin>
+                            { showHidebuttons() }
+                        </Row>
+                    </form>
 
-                                    <Field name="amount"
-                                        type="text"
-                                        col="col-sm-2"
-                                        label="Amount"
-                                        component={renderInput}
-                                        validate={[ required ]}
-                                    />
-                                </div>
-                                <div className="row">
-                                    <div className="col-xs-12">
-                                        { showHidebuttons() }
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <hr />
-                    <ul className="list-group">
+                    <Ul>
                         { renderShoppingList(this.props.shoppingList) }
-                    </ul>
-                </div>
-            </div>
+                    </Ul>
+                </Col>
+            </Row>
         );
     }
 }

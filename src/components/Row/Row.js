@@ -8,6 +8,11 @@ const Row = styled.div`
     padding: ${ props => props.padding ? PADDING : 0 };
     margin: ${ props => props.margin ? MARGIN : 0 };
     width: 100%;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 `;
 
 export default Row;
