@@ -9,6 +9,16 @@ import Label from './Label/Label';
 import Textarea from './Textarea/Textarea';
 import Row from '../Row/Row';
 
+
+export const getFormTagComponent = (tag) => {
+    switch (tag) {
+        case 'input':
+            return renderInput;
+        case 'textarea':
+            return renderTextarea;
+    }
+};
+
 export const required = value => value ? undefined : 'Required';
 
 export const renderInput = ({ input, name, label, placeholder, type, meta }) => (

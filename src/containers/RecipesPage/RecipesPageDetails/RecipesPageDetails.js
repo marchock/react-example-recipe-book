@@ -36,17 +36,18 @@ class RecipePageDetails extends Component {
                 <Row>
                     <H1>{ name }</H1>
                 </Row>
+                <Row>
+                    <P>{ description }</P>
+                </Row>
                 <Row className="child-spacing flex-end" margin>
                     <Button href="/shopping-list" primary>To Shopping List</Button>
                     <Button href={`/recipes/${id}/edit`}>Edit</Button>
                     <Button type="button" danger onClick={this.onDeleteClick.bind(this, id)}>Delete</Button>
                 </Row>
-                <Row>
+                <Row margin>
                     <hr width="100%" />
                 </Row>
-                <Row margin>
-                    <P>{ description }</P>
-                </Row>
+
                 <Row>
                     <Col width={ 12 }>
                         <Ul>

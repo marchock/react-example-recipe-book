@@ -2,7 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../store/recipe.actions';
-import { renderIngredients, renderInput, renderTextarea, required } from '../../../components/Form/FormInputs';
+import {
+    getFormTagComponent, renderIngredients, renderInput, renderTextarea,
+    required
+} from '../../../components/Form/FormInputs';
+import { FormFieldsRecipes } from '../../../components/Form/FormFields';
 import Button from '../../../components/Button/Button';
 import Row from '../../../components/Row/Row';
 import Col from '../../../components/Col/Col';
@@ -26,6 +30,24 @@ class RecipesPageEdit extends Component {
         this.props.history.push(`/recipes/${this.props.match.params.id}`);
     }
 
+    renderFields() {
+        return FormFieldsRecipes.map(({ name, label, type, tag }) => {
+            return (
+                <Row key={ name }>
+                    <Col width={ 12 }>
+                        <Field
+                            name={ name }
+                            label={ label }
+                            type={ type }
+                            component={ getFormTagComponent(tag) }
+                            validate={[ required ]}
+                        />
+                    </Col>
+                </Row>
+            );
+        });
+    }
+
     render() {
 
         const { error, handleSubmit, pristine, reset, submitting } = this.props;
@@ -39,38 +61,7 @@ class RecipesPageEdit extends Component {
                         <Button href={ `/recipes/${this.props.match.params.id}`} danger>Cancel</Button>
                         <Button type="submit" primary>Save</Button>
                     </Row>
-                    <Row>
-                        <Col width={ 12 }>
-                            <Field name="name"
-                                   label="Title"
-                                   type="text"
-                                   component={ renderInput }
-                                   validate={[ required ]} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col width={ 12 }>
-                            <Field name="img"
-                                   label="Image Url"
-                                   type="text"
-                                   component={renderInput}
-                                   validate={[ required ]} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col width={ 12 }>
-                            <Img src={ imgSrc } />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col width={ 12 }>
-                            <Field name="description"
-                                   label="Content"
-                                   component={renderTextarea}
-                                   className="form-control"
-                                   validate={[ required ]} />
-                        </Col>
-                    </Row>
+                    { this.renderFields() }
                     <Row>
                         <hr />
                         <FieldArray name="ingredients" component={renderIngredients} />

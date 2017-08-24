@@ -3,10 +3,11 @@ import { Field, FieldArray, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../store/recipe.actions';
 
-import { renderInput, renderTextarea, renderIngredients, required } from '../../../components/Form/FormInputs';
+import { renderIngredients, required, getFormTagComponent } from '../../../components/Form/FormInputs';
 import Button from '../../../components/Button/Button';
 import Row from '../../../components/Row/Row';
 import FadeIn from '../../../components/Animations/FadeIn';
+import { FormFieldsRecipes } from '../../../components/Form/FormFields';
 
 const RowAnimation = Row.extend`
     animation: ${FadeIn} 0.4s forwards;
@@ -16,6 +17,22 @@ class RecipesPageNew extends Component {
     onSubmit(values) {
         this.props.recipeNew(values);
         this.props.history.push(`/recipes`);
+    }
+
+    renderFields() {
+        return FormFieldsRecipes.map(({ name, label, type, tag }) => {
+            return (
+                <Row key={ name }>
+                    <Field
+                        name={ name }
+                        label={ label }
+                        type={ type }
+                        component={ getFormTagComponent(tag) }
+                        validate={[ required ]}
+                    />
+                </Row>
+            );
+        });
     }
 
     render() {
@@ -31,33 +48,7 @@ class RecipesPageNew extends Component {
                         <Button type="submit" primary>Save</Button>
                         <Button href="/recipes" danger>Cancel</Button>
                     </Row>
-                    <Row>
-                        <Field
-                            name="name"
-                            label="Title"
-                            type="text"
-                            component={ renderInput }
-                            validate={[ required ]}
-                        />
-                    </Row>
-                    <Row>
-                        <Field
-                            name="img"
-                            label="Image Url"
-                            type="text"
-                            component={renderInput}
-                            validate={[ required ]}
-                        />
-                    </Row>
-                    <Row>
-                        <Field
-                            name="description"
-                            label="Content"
-                            component={renderTextarea}
-                            className="form-control"
-                            validate={[ required ]}
-                        />
-                    </Row>
+                    { this.renderFields() }
                     <Row>
                         <hr width="100%" />
                     </Row>
