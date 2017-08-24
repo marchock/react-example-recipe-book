@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import * as actions from './store/shopping-list.actions';
 import ShoppingListItem from './shopping-list-item';
-import { renderInput } from '../../components/Form/FormInputs';
 import Button from '../../components/Button/Button';
 import Row from '../../components/Row/Row';
 import Col from '../../components/Col/Col';
 import Ul from '../../components/Ul/Ul';
+import {formInputText} from '../RecipesPage/RecipeForm/formInput';
 
 const required = value => value ? undefined : 'Required';
 
@@ -93,7 +93,7 @@ class ShoppingListPage extends Component {
                                     type="text"
                                     col="col-sm-5"
                                     label="Name"
-                                    component={renderInput}
+                                    component={formInputText}
                                     validate={[ required ]}
                                 />
                             </Col>
@@ -103,7 +103,7 @@ class ShoppingListPage extends Component {
                                     type="text"
                                     col="col-sm-2"
                                     label="Amount"
-                                    component={renderInput}
+                                    component={formInputText}
                                     validate={[ required ]}
                                 />
                             </Col>

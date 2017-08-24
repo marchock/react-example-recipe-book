@@ -24,6 +24,20 @@ class RecipePageDetails extends Component {
         this.props.recipeDelete(id);
     }
 
+    renderIngredients(ingredients) {
+        if (!ingredients) {
+            return null;
+        }
+
+        return ingredients.map((ingredient, i) => {
+            return (
+                <ListItem key={i}>
+                    {ingredient.name} ({ingredient.amount})
+                </ListItem>
+            );
+        });
+    }
+
     render() {
         const { id } = this.props.match.params;
         const { img, name, description, ingredients } = this.props.recipeList[id];
@@ -42,22 +56,21 @@ class RecipePageDetails extends Component {
                 <Row className="child-spacing flex-end" margin>
                     <Button href="/shopping-list" primary>To Shopping List</Button>
                     <Button href={`/recipes/${id}/edit`}>Edit</Button>
-                    <Button type="button" danger onClick={this.onDeleteClick.bind(this, id)}>Delete</Button>
+                    <Button
+                        type="button"
+                        onClick={this.onDeleteClick.bind(this, id)}
+                        danger
+                    >
+                        Delete
+                    </Button>
                 </Row>
                 <Row margin>
                     <hr width="100%" />
                 </Row>
-
                 <Row>
                     <Col width={ 12 }>
                         <Ul>
-                            { ingredients.map((ingredient, i) => {
-                                return (
-                                    <ListItem key={i}>
-                                        {ingredient.name} ({ingredient.amount})
-                                    </ListItem>
-                                );
-                            })}
+                            { this.renderIngredients(ingredients) }
                         </Ul>
                     </Col>
                 </Row>
