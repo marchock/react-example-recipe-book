@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { mount } from 'enzyme'
 import { MemoryRouter } from 'react-router-dom';
-import RecipesPage from '../../../src/containers/RecipesPage/RecipesPage';
+import RecipesPage from '../../../src/containers/RecipesPage/index';
 import { Provider } from 'react-redux';
 
 

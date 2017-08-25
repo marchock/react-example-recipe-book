@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import RecipesPageDetails from './RecipesPageDetails/RecipesPageDetails';
+import RecipesPageDetails from './RecipesPageDetails/index';
 import RecipesPageEdit from './RecipesPageEdit/index';
-import RecipesPageNew from './RecipesPageNew/RecipesPageNew';
+import RecipesPageNew from './RecipesPageNew/index';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
 import Ul from '../../components/Ul/Ul';

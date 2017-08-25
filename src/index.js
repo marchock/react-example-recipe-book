@@ -7,8 +7,8 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 
 import Header from './components/Header/Header';
-import RecipesPage from './containers/RecipesPage/RecipesPage';
-import ShoppingListPage from './containers/ShoppingListPage/ShoppingListPage';
+import RecipesPage from './containers/RecipesPage';
+import ShoppingListPage from './containers/ShoppingListPage';
 
 import createHistory from 'history/createBrowserHistory'
 const history = createHistory()
