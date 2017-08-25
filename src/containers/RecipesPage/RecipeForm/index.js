@@ -1,13 +1,11 @@
-
-
 import React, { Component, PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { withRouter } from 'react-router';
-
-import { getFormTagComponent, renderIngredients, required } from './formInput';
 import { FormFieldsRecipes } from './FormFields';
 import Button from '../../../components/Button/Button';
 import Row from '../../../components/Row/Row';
+import {ingredientsArray} from './ingredientsArray';
+import {getFormTagComponent, required} from './formFunctions';
 
 class RecipeForm extends Component {
 
@@ -45,13 +43,12 @@ class RecipeForm extends Component {
                     <hr />
                 </Row>
                 <Row>
-                    <FieldArray name="ingredients" component={renderIngredients} />
+                    <FieldArray name="ingredients" component={ ingredientsArray } />
                 </Row>
             </form>
         );
     }
 }
-
 
 RecipeForm = reduxForm({
     form:'RecipeForm',

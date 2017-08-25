@@ -7,51 +7,51 @@ const Recipes = [
         img: 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/11/chilli.jpg?itok=WBfgJnpV',
         ingredients: [
             {
-                name: 'Onions',
+                ingredient: 'Onions',
                 amount: 2
             },
             {
-                name: 'celery sticks',
+                ingredient: 'celery sticks',
                 amount: 2
             },
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             },
             {
-                name: 'sweet smoked paprika',
+                ingredient: 'sweet smoked paprika',
                 amount: '1 tbsp'
             },
             {
-                name: 'ground cumin',
+                ingredient: 'ground cumin',
                 amount: '2 tbsp'
             },
             {
-                name: 'ground cinnamon',
+                ingredient: 'ground cinnamon',
                 amount: '1 tbsp'
             },
             {
-                name: '400g cans chopped tomatoes',
+                ingredient: '400g cans chopped tomatoes',
                 amount: '2'
             },
             {
-                name: '400g can refried beans',
+                ingredient: '400g can refried beans',
                 amount: '1'
             }
         ]
@@ -62,43 +62,43 @@ const Recipes = [
         img: 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/04/spiced-chicken-spinach-sweet-potato-stew.jpg?itok=jsrhL11K',
         ingredients: [
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             },
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             }
         ]
@@ -109,43 +109,43 @@ const Recipes = [
         img: 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/salmon-main.jpg?itok=MDGKkzor',
         ingredients: [
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             },
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             }
         ]
@@ -156,43 +156,43 @@ const Recipes = [
         img: 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/fish-stew-roast-garlic-saffron.jpg?itok=KJ_W0Ez-',
         ingredients: [
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             },
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             }
         ]
@@ -203,43 +203,43 @@ const Recipes = [
         img: 'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/spaghetti-smoky-tomato-seafood-sauce.jpg?itok=C7x-UL_I',
         ingredients: [
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             },
             {
-                name: 'yellow or orange peppers',
+                ingredient: 'yellow or orange peppers',
                 amount: 2
             },
             {
-                name: 'tsp chipotle paste',
+                ingredient: 'tsp chipotle paste',
                 amount: '2'
             },
             {
-                name: 'red wine vinegar',
+                ingredient: 'red wine vinegar',
                 amount: '2 tbsp'
             },
             {
-                name: 'cocoa powder',
+                ingredient: 'cocoa powder',
                 amount: '1 tbsp'
             },
             {
-                name: 'dried oregano',
+                ingredient: 'dried oregano',
                 amount: '1 tbsp'
             }
         ]

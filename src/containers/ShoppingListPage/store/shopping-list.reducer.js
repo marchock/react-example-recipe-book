@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
         case SHOPPING_LIST_SAVE_INGREDIENT:
             shoppingList = [ ...state.list ];
             shoppingList[Number(action.payload.index)] = {
-                name: action.payload.name,
+                name: action.payload.ingredient,
                 amount: action.payload.amount
             };
             return { ...state, edit: false, item: null, list: shoppingList };
@@ -44,7 +44,7 @@ export default function(state = initialState, action) {
         case SHOPPING_LIST_UPDATE:
             return { ...state, edit: true, item: {
                 index: action.payload,
-                name: state.list[action.payload].name,
+                name: state.list[action.payload].ingredient,
                 amount: state.list[action.payload].amount
             } };
 

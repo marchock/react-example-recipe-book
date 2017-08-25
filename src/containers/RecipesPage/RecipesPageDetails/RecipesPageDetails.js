@@ -32,7 +32,7 @@ class RecipePageDetails extends Component {
         return ingredients.map((ingredient, i) => {
             return (
                 <ListItem key={i}>
-                    {ingredient.name} ({ingredient.amount})
+                    {ingredient.ingredient} ({ingredient.amount})
                 </ListItem>
             );
         });

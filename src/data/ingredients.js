@@ -1,22 +1,22 @@
 const Ingredients = [
     {
-        name: 'yellow or orange peppers',
+        ingredient: 'yellow or orange peppers',
         amount: 2
     },
     {
-        name: 'tsp chipotle paste',
+        ingredient: 'tsp chipotle paste',
         amount: '2'
     },
     {
-        name: 'red wine vinegar',
+        ingredient: 'red wine vinegar',
         amount: '2 tbsp'
     },
     {
-        name: 'cocoa powder',
+        ingredient: 'cocoa powder',
         amount: '1 tbsp'
     },
     {
-        name: 'dried oregano',
+        ingredient: 'dried oregano',
         amount: '1 tbsp'
     }
 ];

@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import RecipesPageDetails from './RecipesPageDetails/RecipesPageDetails';
-import RecipesPageEdit from './RecipesPageEdit/RecipesPageEdit';
+import RecipesPageEdit from './RecipesPageEdit/index';
 import RecipesPageNew from './RecipesPageNew/RecipesPageNew';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';

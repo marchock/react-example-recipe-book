@@ -5,6 +5,6 @@ export const FormFieldsRecipes = [
 ];
 
 export const FormFieldsIngredients = [
-    { tag: 'input', type: 'text', label: 'Ingredient Name', name: 'name' },
+    { tag: 'input', type: 'text', label: 'Ingredient Name', name: 'ingredient' },
     { tag: 'input', type: 'text', label: 'Ingredient Amount', name: 'amount' },
 ];

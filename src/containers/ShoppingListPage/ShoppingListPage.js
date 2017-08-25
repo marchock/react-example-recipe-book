@@ -7,7 +7,8 @@ import Button from '../../components/Button/Button';
 import Row from '../../components/Row/Row';
 import Col from '../../components/Col/Col';
 import Ul from '../../components/Ul/Ul';
-import {formInputText} from '../RecipesPage/RecipeForm/formInput';
+import {formInputText} from '../RecipesPage/RecipeForm/inputText';
+import IngredientInputs from '../RecipesPage/RecipeForm/IngredientInputs';
 
 const required = value => value ? undefined : 'Required';
 
@@ -86,33 +87,14 @@ class ShoppingListPage extends Component {
             <Row>
                 <Col width={ 10 }>
                     <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+
                         <Row margin>
-                            <Col width={ 3 }>
-                                <Field
-                                    name="name"
-                                    type="text"
-                                    col="col-sm-5"
-                                    label="Name"
-                                    component={formInputText}
-                                    validate={[ required ]}
-                                />
-                            </Col>
-                            <Col width={ 3 }>
-                                <Field
-                                    name="amount"
-                                    type="text"
-                                    col="col-sm-2"
-                                    label="Amount"
-                                    component={formInputText}
-                                    validate={[ required ]}
-                                />
-                            </Col>
+                            <IngredientInputs col={ 3 } />
                         </Row>
                         <Row margin>
                             { showHidebuttons() }
                         </Row>
                     </form>
-
                     <Ul>
                         { renderShoppingList(this.props.shoppingList) }
                     </Ul>

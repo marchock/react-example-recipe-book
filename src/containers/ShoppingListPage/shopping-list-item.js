@@ -21,14 +21,14 @@ class ShoppingListItem extends Component {
     }
 
     render() {
-        const { index, item: { name, amount }} = this.props;
+        const { index, item: { ingredient, amount }} = this.props;
 
         return (
             <List
                 onClick={ this.onClickItem.bind(this, index) }
                 className={`${ this.renderButtonSelected(index) }`}
             >
-                { name } ({ amount })
+                { ingredient } ({ amount })
             </List>
         )
     }
