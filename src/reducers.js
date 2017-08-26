@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
-import RecipesReducer from './components/recipes/recipes_reducer';
-import ShoppingListReducer from './components/shopping-list/shopping-list_reducer';
 import { reducer as formReducer } from 'redux-form';
 
+import RecipeReducer from './containers/RecipesPage/store/recipe.reducer';
+import ShoppingListReducer from './containers/ShoppingListPage/store/shopping-list.reducer';
+
 const rootReducer = combineReducers({
-  recipes: RecipesReducer,
-  shoppingList: ShoppingListReducer,
-  form: formReducer
+    recipe: RecipeReducer,
+    shoppingList: ShoppingListReducer,
+    form: formReducer
 });
 
 export default rootReducer;
