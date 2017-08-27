@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { Router, Redirect, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 import Header from './components/Header/Header';
@@ -12,7 +13,7 @@ import ShoppingListPage from './containers/ShoppingListPage';
 
 import createHistory from 'history/createBrowserHistory'
 const history = createHistory()
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(

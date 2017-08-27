@@ -2,3 +2,4 @@ export const RECIPE_NEW = 'RECIPE_NEW';
 export const RECIPE_SELECTED = 'RECIPE_SELECTED';
 export const RECIPE_UPDATE = 'RECIPE_UPDATE';
 export const RECIPE_DELETE = 'RECIPE_DELETE';
+export const RECIPE_UPDATE_LIST = 'RECIPES_UPDATE';

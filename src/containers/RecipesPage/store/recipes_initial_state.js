@@ -1,4 +1,3 @@
-import Recipes from '../../../data/recipes';
 
 export const RECIPE_DEFAULT_STATE = {
     name: '',
@@ -6,10 +5,11 @@ export const RECIPE_DEFAULT_STATE = {
     img: '',
     ingredients: [],
     view: '',
+    _id: '',
 };
 
 export const RECIPES_INITIAL_STATE = {
-    list: Recipes,
+    list: [],
     selected: RECIPE_DEFAULT_STATE,
 };
 

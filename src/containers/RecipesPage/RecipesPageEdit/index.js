@@ -14,13 +14,14 @@ const RowAnimation = Row.extend`
 
 class RecipesPageEdit extends Component {
 
-    componentWillMount() {
-        this.props.recipeSelected(this.props.match.params.id);
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.recipe._id && nextProps.recipes.length > 0) {
+            this.props.recipeSelected(this.props.match.params.id);
+        }
     }
 
     submitForm(values) {
-        const id =  this.props.match.params.id;
-        this.props.recipeUpdate({ values, id });
+        this.props.recipeUpdate({ values });
         this.props.history.push(`/recipes/${this.props.match.params.id}`);
     }
 

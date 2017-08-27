@@ -39,8 +39,13 @@ class RecipePageDetails extends Component {
     }
 
     render() {
+        if (this.props.recipeList.length <= 0) {
+            return <div>Loading...</div>
+        }
+
         const { id } = this.props.match.params;
-        const { img, name, description, ingredients } = this.props.recipeList[id];
+
+        const { img, name, description, ingredients } = this.props.recipeList.find(recipe => recipe._id === id);
 
         return (
             <RowAnimation>

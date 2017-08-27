@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as actions from './store/recipe.actions';
 
 import RecipesPageDetails from './RecipesPageDetails/index';
 import RecipesPageEdit from './RecipesPageEdit/index';
@@ -12,6 +13,11 @@ import ListItemRecipe from '../../components/ListItem/ListItemRecipe';
 import Button from '../../components/Button/Button';
 
 class RecipesPage extends Component {
+
+    componentWillMount() {
+        this.props.getRecipesFromApi();
+    }
+
     render() {
 
         const { recipeList } = this.props;
@@ -62,4 +68,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(RecipesPage)
+export default connect(mapStateToProps, actions)(RecipesPage)

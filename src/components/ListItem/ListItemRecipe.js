@@ -9,7 +9,7 @@ import Img from '../Img/Img';
 import P from '../P/P';
 
 const ListItemRecipe = ({ index, recipe }) => {
-    const { name, description, img } = recipe;
+    const { name, description, img, _id } = recipe;
     const ListItem = styled(Link)`${ListItemStyles}`;
     const ListItemRecipe = ListItem.extend`
         display: table;
@@ -17,7 +17,7 @@ const ListItemRecipe = ({ index, recipe }) => {
 
     return (
         <ListItemRecipe
-            to={`/recipes/${index}`}
+            to={`/recipes/${_id}`}
         >
             <Col width={ 12 }>
                 <H4>{ name }</H4>
