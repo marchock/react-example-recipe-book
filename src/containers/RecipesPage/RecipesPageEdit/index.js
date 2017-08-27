@@ -15,9 +15,13 @@ const RowAnimation = Row.extend`
 class RecipesPageEdit extends Component {
 
     componentWillReceiveProps(nextProps) {
-        if (!nextProps.recipe._id && nextProps.recipes.length > 0) {
+        if (!nextProps.recipe && nextProps.recipes.length > 0) {
             this.props.recipeSelected(this.props.match.params.id);
         }
+    }
+
+    componentWillUnmount() {
+        this.props.recipeUnselect();
     }
 
     submitForm(values) {

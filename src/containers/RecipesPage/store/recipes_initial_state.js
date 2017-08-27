@@ -10,7 +10,7 @@ export const RECIPE_DEFAULT_STATE = {
 
 export const RECIPES_INITIAL_STATE = {
     list: [],
-    selected: RECIPE_DEFAULT_STATE,
+    selected: null,
 };
 
 

@@ -6,7 +6,7 @@ import {
     RECIPE_UPDATE,
     RECIPE_SELECTED,
     RECIPE_DELETE,
-    RECIPE_UPDATE_LIST,
+    RECIPE_UPDATE_LIST, RECIPE_UNSELECT,
 } from './recipe.types';
 
 const URL = KEYS.API_URL;
@@ -62,9 +62,15 @@ export function recipeNew(payload) {
             .then(({ data }) => {
                 if (data.error) { return console.log(data.error); }
 
-                dispatch({ type: RECIPE_NEW, payload: payload });
+                dispatch({ type: RECIPE_NEW, payload: data });
             }).catch(function (error) {
                 console.log(error);
             });
+    }
+}
+
+export function recipeUnselect() {
+    return {
+        type: RECIPE_UNSELECT,
     }
 }

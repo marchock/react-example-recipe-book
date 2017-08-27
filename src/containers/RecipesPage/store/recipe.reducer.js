@@ -4,7 +4,7 @@ import {
     RECIPE_NEW,
     RECIPE_SELECTED,
     RECIPE_UPDATE,
-    RECIPE_DELETE, RECIPE_UPDATE_LIST,
+    RECIPE_DELETE, RECIPE_UPDATE_LIST, RECIPE_UNSELECT,
 } from './recipe.types';
 
 export default function(state = RECIPES_INITIAL_STATE, action) {
@@ -33,8 +33,12 @@ export default function(state = RECIPES_INITIAL_STATE, action) {
 
         case RECIPE_DELETE:
             recipeList = [ ...state.list ];
-            recipeList.splice(Number(action.payload), 1);
-            return { ...state, list: [ ...recipeList ] };;
+            const list = recipeList.filter(recipe => recipe._id !== action.payload);
+            return { ...state, list: [ ...list ] };
+
+
+        case RECIPE_UNSELECT:
+            return { ...state, selected: null };
 
         default:
             return state;

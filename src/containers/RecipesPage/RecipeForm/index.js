@@ -30,12 +30,18 @@ class RecipeForm extends Component {
     }
 
     render() {
-        const { error, handleSubmit, pristine, reset, submitting } = this.props;
+        const { error, handleSubmit, pristine, reset, submitting, match } = this.props;
+
+        console.log(this.props)
 
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <Row className="flex-end child-spacing" margin>
-                    <Button href={ `/recipes`} danger>Cancel</Button>
+                    <Button
+                        href={ match.params.id ? `/recipes/${match.params.id}` : '/recipes'}
+                        danger
+                    >
+                        Cancel</Button>
                     <Button type="submit" primary>Save</Button>
                 </Row>
                 { this.renderFields() }
