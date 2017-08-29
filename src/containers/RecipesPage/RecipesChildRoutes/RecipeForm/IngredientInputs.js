@@ -2,7 +2,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 
 import { FormFieldsIngredients } from './FormFields';
-import Col from '../../../components/Col/Col';
+import Col from '../../../../components/Col/Col';
 import { inputText } from './inputText';
 import { required } from './formFunctions';
 

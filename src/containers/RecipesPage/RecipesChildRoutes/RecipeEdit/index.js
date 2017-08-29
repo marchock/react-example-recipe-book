@@ -1,18 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import * as actions from '../store/recipe.actions';
+import * as actions from '../../store/recipe.actions';
 
-import RecipeForm from '../RecipeForm';
+import RecipeForm from '../RecipeForm/index';
 
-import Row from '../../../components/Row/Row';
-import FadeIn from '../../../components/Animations/FadeIn';
+import Row from '../../../../components/Row/Row';
+import FadeIn from '../../../../components/Animations/FadeIn';
 
 const RowAnimation = Row.extend`
     animation: ${FadeIn} 0.4s forwards;
 `;
 
-class RecipesPageEdit extends Component {
+class RecipeEdit extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (!nextProps.recipe && nextProps.recipes.length > 0) {
@@ -38,10 +38,10 @@ class RecipesPageEdit extends Component {
     }
 }
 
-RecipesPageEdit = reduxForm({
+RecipeEdit = reduxForm({
     form:'RecipeForm',
     enableReinitialize : true,
-})(RecipesPageEdit);
+})(RecipeEdit);
 
 
 function mapStateToProps(state) {
@@ -52,4 +52,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, actions)(RecipesPageEdit);
+export default connect(mapStateToProps, actions)(RecipeEdit);

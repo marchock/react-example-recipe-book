@@ -1,9 +1,9 @@
 import React from 'react';
-import Row from '../../../components/Row/Row';
-import Col from '../../../components/Col/Col';
+import Row from '../../../../components/Row/Row';
+import Col from '../../../../components/Col/Col';
 import { Field } from 'redux-form';
-import Button from '../../../components/Button/Button';
-import Fieldset from '../../../components/Form/Fieldset/Fieldset';
+import Button from '../../../../components/Button/Button';
+import Fieldset from '../../../../components/Form/Fieldset/Fieldset';
 import { inputText } from './inputText';
 import { required } from './formFunctions';
 

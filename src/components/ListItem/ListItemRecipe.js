@@ -8,7 +8,7 @@ import H4 from '../H4/H4';
 import Img from '../Img/Img';
 import P from '../P/P';
 
-const ListItemRecipe = ({ index, recipe }) => {
+const ListItemRecipe = ({ recipe }) => {
     const { name, description, img, _id } = recipe;
     const ListItem = styled(Link)`${ListItemStyles}`;
     const ListItemRecipe = ListItem.extend`

@@ -8,6 +8,7 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 import Header from './components/Header/Header';
+import Footer from './components/Footer';
 import RecipesPage from './containers/RecipesPage';
 import ShoppingListPage from './containers/ShoppingListPage';
 
@@ -20,11 +21,14 @@ ReactDOM.render(
     <Provider store={ store }>
         <Router history={ history }>
             <div>
-                <Header />
-                <Route exact path="/" render={ () => <Redirect to="/recipes"/> }/>
-                <Route path="/recipes" component={ RecipesPage } />
-                <Route path="/shopping-list" component={ ShoppingListPage } />
+                <div className="container">
+                    <Header />
+                    <Route exact path="/" render={ () => <Redirect to="/recipes"/> }/>
+                    <Route path="/recipes" component={ RecipesPage } />
+                    <Route path="/shopping-list" component={ ShoppingListPage } />
+                </div>
+                <Footer />
             </div>
         </Router>
     </Provider>
-    , document.querySelector('.container'));
+    , document.querySelector('.root'));

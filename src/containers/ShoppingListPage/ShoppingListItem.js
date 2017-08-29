@@ -1,5 +1,5 @@
 import React from 'react';
-import List from '../../components/ListItem/ListItem';
+import ListItem from '../../components/ListItem/ListItem';
 
 const ShoppingListItem = (props) => {
 
@@ -21,12 +21,12 @@ const ShoppingListItem = (props) => {
     const { ingredient, amount } = props.item;
 
     return (
-        <List
+        <ListItem
             onClick={ () => onClickItem(props.index) }
             className={`${isSelected(props.index)}`}
         >
             { ingredient } ({ amount })
-        </List>
+        </ListItem>
     );
 }
 

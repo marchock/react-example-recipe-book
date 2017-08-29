@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { withRouter } from 'react-router';
 import { FormFieldsRecipes } from './FormFields';
-import Button from '../../../components/Button/Button';
-import Row from '../../../components/Row/Row';
+import Button from '../../../../components/Button/Button';
+import Row from '../../../../components/Row/Row';
 import {ingredientsArray} from './ingredientsArray';
 import {getFormTagComponent, required} from './formFunctions';
 
