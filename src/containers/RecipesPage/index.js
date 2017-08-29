@@ -1,12 +1,16 @@
 import React from 'react';
 
 import RecipesNav from './RecipesNav';
-import RecipesChildRoutes from './RecipesChildRoutes/index';
+import RecipesChildRoutes from './RecipesChildRoutes';
 import Col from '../../components/Col/Col';
 import Row from '../../components/Row/Row';
 import Button from '../../components/Button/Button';
 
-const RecipesPage = () => {
+/**
+ * Recipe Page
+ *
+ */
+export default function RecipesPage() {
     return (
         <Row>
             <Col width={ 5 }>
@@ -26,4 +30,3 @@ const RecipesPage = () => {
     );
 };
 
-export default RecipesPage;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import DetailButtons from './DetailButtons';
@@ -11,12 +12,21 @@ import Img from '../../../../components/Img/Img';
 import FadeIn from '../../../../components/Animations/FadeIn';
 import Hr from '../../../../components/Hr/index';
 
-
+/**
+ * Extend Row and apply an animation
+ *
+ * NOTE: This could be a reusable component and to be moved to components
+ */
 const RowAnimation = Row.extend`
     animation: ${FadeIn} 0.4s forwards;
     margin-top: 70px;
 `;
 
+/**
+ * Recipes Details
+ *
+ * Find a recipe by id and display its data
+ */
 class RecipeDetails extends Component {
 
     render() {
@@ -24,8 +34,14 @@ class RecipeDetails extends Component {
             return <div>Loading...</div>
         }
 
+        /**
+         * Get a recipe id from the URL
+         */
         const { id } = this.props.match.params;
 
+        /**
+         * Find a recipe by id and output its data
+         */
         const { img, name, description, ingredients } = this.props.recipeList.find(recipe => recipe._id === id);
 
         return (
@@ -57,3 +73,12 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(RecipeDetails);
+
+
+RecipeDetails.propTypes = {
+    recipeList: PropTypes.array,
+};
+
+RecipeDetails.defaultProps = {
+    recipeList: [],
+};

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../store/recipe.actions';
@@ -12,7 +13,13 @@ const RowAnimation = Row.extend`
     animation: ${FadeIn} 0.4s forwards;
 `;
 
-class RecipeEdit extends Component {
+
+/**
+ * Recipe Edit
+ *
+ * To edit a recipe details and save it to the server
+ */
+class RecipeEdit extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (!nextProps.recipe && nextProps.recipes.length > 0) {
@@ -20,10 +27,16 @@ class RecipeEdit extends Component {
         }
     }
 
+    /**
+     * update store.recipe.selected to null to reset component
+     */
     componentWillUnmount() {
         this.props.recipeUnselect();
     }
 
+    /**
+     * Submit form to api and then redirect to recipe details
+     */
     submitForm(values) {
         this.props.recipeUpdate({ values });
         this.props.history.push(`/recipes/${this.props.match.params.id}`);
@@ -53,3 +66,15 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(RecipeEdit);
+
+RecipeEdit.propTypes = {
+    recipe: PropTypes.object,
+    recipes: PropTypes.array,
+    initialValues: PropTypes.object,
+};
+
+RecipeEdit.defaultProps = {
+    recipe: {},
+    initialValues: {},
+    recipes: [],
+};

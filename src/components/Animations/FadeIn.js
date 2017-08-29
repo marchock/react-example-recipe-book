@@ -10,5 +10,4 @@ const FadeIn = keyframes`
 	}
 `;
 
-
 export default FadeIn;

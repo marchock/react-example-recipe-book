@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/recipe.actions';
@@ -6,7 +6,7 @@ import Button from '../../../../../components/Button/Button';
 import Row from '../../../../../components/Row/Row';
 
 
-class DetailButtons extends Component {
+class DetailButtons extends React.Component {
 
     onDeleteClick(id) {
         this.props.history.push('/recipes');

@@ -5,7 +5,9 @@ import RecipeDetails from './RecipeDetails';
 import RecipeEdit from './RecipeEdit';
 import RecipeNew from './RecipeNew';
 
-
+/**
+ * Recipes Child Routes
+ */
 const RecipesChildRoutes = (props) => {
     return (
         <Switch>
@@ -26,4 +28,7 @@ const RecipesChildRoutes = (props) => {
     );
 };
 
+/**
+ * Wrapped RecipesChildRoutes with "withRouter" to get routing data (props.match.url)
+ */
 export default withRouter(RecipesChildRoutes);
