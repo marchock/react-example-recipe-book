@@ -13,10 +13,8 @@ const URL = KEYS.API_URL;
 
 export function getRecipesFromApi() {
     return dispatch => {
-        console.log(URL)
         return axios.get(`${URL}/get-recipes`)
             .then((recipes) => {
-                console.log(recipes)
                 dispatch({ type: RECIPE_UPDATE_LIST, payload: recipes.data })
             }).catch(function (error) {
                 console.log(error);
