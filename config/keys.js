@@ -1,6 +1,6 @@
-import DEV_KEYS from './dev';
-import PROD_KEYS from './prod';
-
-const KEYS = (process.env.NODE_ENV === 'production') ? PROD_KEYS : DEV_KEYS;
+// Config Keys
+const KEYS = {
+    API_URL: process.env.API_URL
+};
 
 export default KEYS;
