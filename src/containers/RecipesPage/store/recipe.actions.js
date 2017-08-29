@@ -15,6 +15,7 @@ export function getRecipesFromApi() {
     return dispatch => {
         return axios.get(`${URL}/get-recipes`)
             .then((recipes) => {
+                console.log(recipes.data)
                 dispatch({ type: RECIPE_UPDATE_LIST, payload: recipes.data })
             }).catch(function (error) {
                 console.log(error);
