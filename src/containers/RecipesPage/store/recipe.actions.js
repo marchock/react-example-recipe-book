@@ -13,18 +13,18 @@ const URL = KEYS.API_URL;
 
 export function getRecipesFromApi() {
     return dispatch => {
-
-        axios.get(`${URL}/get-recipes`)
+        return axios.get(`${URL}/get-recipes`)
             .then((recipes) => {
                 dispatch({ type: RECIPE_UPDATE_LIST, payload: recipes.data })
-            });
+            }).catch(function (error) {
+                console.log(error);
+            })
     }
 }
 
-
 export function recipeUpdate(payload) {
     return dispatch => {
-        axios.post(`${URL}/update-recipe`, { ...payload.values })
+        return axios.post(`${URL}/update-recipe`, { ...payload.values })
             .then(({ data }) => {
                 if (data.error) { return console.log(data.error); }
 
@@ -37,7 +37,7 @@ export function recipeUpdate(payload) {
 
 export function recipeDelete(payload) {
     return dispatch => {
-        axios.post(`${URL}/delete-recipe`, { _id: payload })
+        return axios.post(`${URL}/delete-recipe`, { _id: payload })
             .then(({ data }) => {
                 if (data.error) { return console.log(data.error); }
 
@@ -58,7 +58,7 @@ export function recipeSelected(payload) {
 export function recipeNew(payload) {
     return dispatch => {
 
-        axios.post(`${URL}/add-recipe`, { ...payload })
+        return axios.post(`${URL}/add-recipe`, { ...payload })
             .then(({ data }) => {
                 if (data.error) { return console.log(data.error); }
 

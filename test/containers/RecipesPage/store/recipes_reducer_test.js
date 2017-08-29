@@ -8,13 +8,44 @@ import RecipeReducer from '../../../../src/containers/RecipesPage/store/recipe.r
 
 
 describe('Recipe Reducer', () => {
+    let RECIPE_LIST_DATA = {};
+    let RECIPE_DATA = {};
+    let _id = '1';
 
-    const recipe = {
-        name: 'test',
-        description: 'test',
-        img: 'test',
-        ingredients: [],
-    };
+    beforeEach(() => {
+
+        _id = '1';
+
+        RECIPE_DATA = {
+            name: 'Recipe',
+            description: 'Recipe',
+            img: 'Recipe.jpg',
+            ingredients: [],
+            view: '',
+            _id: _id,
+        };
+
+        RECIPE_LIST_DATA = {
+            selected: null,
+            list: [
+                {
+                    name: 'TEST',
+                    description: 'TEST',
+                    img: 'TEST.jpg',
+                    ingredients: [],
+                    view: '',
+                    _id: '1',
+                },
+                {
+                    name: 'TEST',
+                    description: 'TEST',
+                    img: 'TEST.jpg',
+                    ingredients: [],
+                    view: '',
+                    _id: '2',
+                }
+            ]};
+    });
 
 
     it('should return the initial state', () => {
@@ -25,55 +56,60 @@ describe('Recipe Reducer', () => {
 
 
     it('should add a new recipe', () => {
-        const index = RECIPES_INITIAL_STATE.list.length;
-        let recipesState = Object.assign({}, RECIPES_INITIAL_STATE);
-        recipesState.list.push(recipe);
+        const index = RECIPE_LIST_DATA.list.length;
+        let recipesState = Object.assign({}, RECIPE_LIST_DATA);
+        recipesState.list.push(RECIPE_DATA);
 
-        expect(RecipeReducer(RECIPES_INITIAL_STATE, {
+        expect(RecipeReducer(RECIPE_LIST_DATA, {
                 type: types.RECIPE_NEW,
-                payload: recipe,
+                payload: RECIPE_DATA,
             }
         ).list[index]).to.deep.include(recipesState.list[index]);
     });
 
 
     it('should delete a recipe', () => {
-        const list = [ ...RECIPES_INITIAL_STATE.list ]
-        let recipesState = { ...RECIPES_INITIAL_STATE, list: list };
-        recipesState.list.splice(0, 1);
+        const recipeList = [ ...RECIPE_LIST_DATA.list ]
+        const list = recipeList.filter(recipe => recipe._id !== '1');
 
-        expect(RecipeReducer(RECIPES_INITIAL_STATE, {
+        expect(RecipeReducer(RECIPE_LIST_DATA, {
                 type: types.RECIPE_DELETE,
-                payload: 0,
+                payload: '1',
             }
-        ).list.length).to.equal(recipesState.list.length);
+        ).list.length).to.equal(list.length);
     });
 
-    it('should update a recipe', () => {
-        const index = 0;
-        let list = [ ...RECIPES_INITIAL_STATE.list ];
-        list[index] = recipe;
-        let recipesState = { ...RECIPES_INITIAL_STATE, list: list };
 
-        expect(RecipeReducer(RECIPES_INITIAL_STATE, {
+    it('should update a recipe', () => {
+
+        let recipeList = [ ...RECIPE_LIST_DATA.list ];
+
+        const recipes = recipeList.map(recipe => {
+            return (recipe._id === _id) ? RECIPE_DATA : recipe;
+        });
+
+        expect(RecipeReducer(RECIPE_LIST_DATA, {
                 type: types.RECIPE_UPDATE,
                 payload: {
-                    values: recipe,
-                    id: index,
+                    values: RECIPE_DATA,
+                    id: _id,
                 },
             }
-        ).list[index]).to.deep.include(recipesState.list[index]);
+        ).list).to.have.deep.members(recipes);
     });
 
 
     it('should select a recipe', () => {
-        const index = 0;
-        let list = [ ...RECIPES_INITIAL_STATE.list ];
-        let recipesState = { ...RECIPES_INITIAL_STATE, selected: list[index] };
+        const _id = '1';
+        let list = [ ...RECIPE_LIST_DATA.list ];
+        let recipesState = {
+            ...RECIPE_LIST_DATA,
+            selected: list.find(recipe => recipe._id === _id)
+        };
 
-        expect(RecipeReducer(RECIPES_INITIAL_STATE, {
+        expect(RecipeReducer(RECIPE_LIST_DATA, {
                 type: types.RECIPE_SELECTED,
-                payload: index,
+                payload: _id,
             }
         ).selected).to.deep.include(recipesState.selected);
     });

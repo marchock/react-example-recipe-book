@@ -32,8 +32,6 @@ class RecipeForm extends Component {
     render() {
         const { error, handleSubmit, pristine, reset, submitting, match } = this.props;
 
-        console.log(this.props)
-
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <Row className="flex-end child-spacing" margin>

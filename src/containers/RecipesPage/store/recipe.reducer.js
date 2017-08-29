@@ -20,7 +20,10 @@ export default function(state = RECIPES_INITIAL_STATE, action) {
             return { ...state, list: newList };
 
         case RECIPE_SELECTED:
-            const selectedRecipe = state.list.find(recipe => recipe._id === action.payload);
+            recipeList = [ ...state.list ];
+            const selectedRecipe = recipeList
+                .find(recipe => recipe._id === action.payload);
+
             return { ...state, selected: { ...selectedRecipe } };
 
         case RECIPE_UPDATE:
