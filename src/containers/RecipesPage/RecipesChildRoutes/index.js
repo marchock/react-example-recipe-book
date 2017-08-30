@@ -8,24 +8,24 @@ import RecipeNew from './RecipeNew';
 /**
  * Recipes Child Routes
  */
-const RecipesChildRoutes = (props) => {
-    return (
-        <Switch>
-            <Route
-                path={`${ props.match.url }/new`}
-                component={ RecipeNew }
-            />
-            <Route
-                exact
-                path={`${ props.match.url }/:id`}
-                component={ RecipeDetails }
-            />
-            <Route
-                path={`${ props.match.url }/:id/edit`}
-                component={ RecipeEdit }
-            />
-        </Switch>
-    );
+function RecipesChildRoutes(props) {
+  return (
+    <Switch>
+      <Route
+        path={`${props.match.url}/new`}
+        component={ RecipeNew }
+      />
+        <Route
+        exact
+        path={`${props.match.url}/:id`}
+        component={ RecipeDetails }
+      />
+      <Route
+        path={`${props.match.url}/:id/edit`}
+        component={ RecipeEdit }
+      />
+    </Switch>
+  );
 };
 
 /**

@@ -13,7 +13,6 @@ const RowAnimation = Row.extend`
     animation: ${FadeIn} 0.4s forwards;
 `;
 
-
 /**
  * Recipe Edit
  *
@@ -21,60 +20,59 @@ const RowAnimation = Row.extend`
  */
 class RecipeEdit extends React.Component {
 
-    componentWillReceiveProps(nextProps) {
-        if (!nextProps.recipe && nextProps.recipes.length > 0) {
-            this.props.recipeSelected(this.props.match.params.id);
-        }
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.recipe && nextProps.recipes.length > 0) {
+      this.props.recipeSelected(this.props.match.params.id);
     }
+  }
 
-    /**
-     * update store.recipe.selected to null to reset component
-     */
-    componentWillUnmount() {
-        this.props.recipeUnselect();
-    }
+  /**
+   * update store.recipe.selected to null to reset component
+   */
+  componentWillUnmount() {
+    this.props.recipeUnselect();
+  }
 
-    /**
-     * Submit form to api and then redirect to recipe details
-     */
-    submitForm(values) {
-        this.props.recipeUpdate({ values });
-        this.props.history.push(`/recipes/${this.props.match.params.id}`);
-    }
+  /**
+   * Submit form to api and then redirect to recipe details
+   */
+  submitForm(values) {
+    this.props.recipeUpdate({ values });
+    this.props.history.push(`/recipes/${this.props.match.params.id}`);
+  }
 
-    render() {
-        return (
-            <RowAnimation>
-                <RecipeForm onSubmit={ values => this.submitForm(values) } />
-            </RowAnimation>
-        );
-    }
+  render() {
+    return (
+      <RowAnimation>
+        <RecipeForm onSubmit={ values => this.submitForm(values) } />
+      </RowAnimation>
+    );
+  }
 }
 
 RecipeEdit = reduxForm({
-    form:'RecipeForm',
-    enableReinitialize : true,
-})(RecipeEdit);
-
+    form: 'RecipeForm',
+    enableReinitialize: true,
+  })(RecipeEdit);
 
 function mapStateToProps(state) {
-    return {
-        recipe: state.recipe.selected,
-        recipes: state.recipe.list,
-        initialValues: state.recipe.selected,
-    };
+  return {
+    recipe: state.recipe.selected,
+    recipes: state.recipe.list,
+    initialValues: state.recipe.selected,
+  };
 }
 
 export default connect(mapStateToProps, actions)(RecipeEdit);
 
 RecipeEdit.propTypes = {
-    recipe: PropTypes.object,
-    recipes: PropTypes.array,
-    initialValues: PropTypes.object,
+  recipe: PropTypes.object,
+  recipes: PropTypes.array,
+  initialValues: PropTypes.object,
 };
 
 RecipeEdit.defaultProps = {
-    recipe: {},
-    initialValues: {},
-    recipes: [],
+  recipe: {},
+  initialValues: {},
+  recipes: [],
 };

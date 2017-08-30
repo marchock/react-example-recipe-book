@@ -17,25 +17,25 @@ const RowAnimation = Row.extend`
  */
 class RecipeNew extends React.Component {
 
-    /**
-     * submitForm
-     *
-     * Submit form to api and redirect to recipes page
-     *
-     * @param: Object - values
-     */
-    submitForm(values) {
-        this.props.recipeNew(values);
-        this.props.history.push(`/recipes`);
-    }
+  /**
+   * submitForm
+   *
+   * Submit form to api and redirect to recipes page
+   *
+   * @param: Object - values
+   */
+  submitForm(values) {
+    this.props.recipeNew(values);
+    this.props.history.push(`/recipes`);
+  }
 
-    render() {
-        return (
-            <RowAnimation>
-                <RecipeForm onSubmit={ values => this.submitForm(values) } />
-            </RowAnimation>
-        );
-    }
+  render() {
+    return (
+      <RowAnimation>
+        <RecipeForm onSubmit={ values => this.submitForm(values) } />
+      </RowAnimation>
+    );
+  }
 }
 
 export default connect(null, actions)(RecipeNew);
