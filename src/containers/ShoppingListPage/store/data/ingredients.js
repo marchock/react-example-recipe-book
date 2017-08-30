@@ -1,3 +1,6 @@
+// TODO: move data to the store and delete data folder and file
+
+
 const Ingredients = [
     {
         ingredient: 'yellow or orange peppers',

@@ -9,60 +9,60 @@ import FormButtons from '.././ShoppingListForm/FormButtons';
 
 class ShoppingListForm extends Component {
 
-    onSubmit(ingredient) {
-        if (this.props.shoppingList.item) {
-            this.props.shoppingListSaveIngredient(ingredient);
-            this.resetForm();
-        } else {
-            this.props.shoppingListAddIngredient(ingredient);
-            this.props.reset();
-        }
+  onSubmit(ingredient) {
+    if (this.props.shoppingList.item) {
+      this.props.shoppingListSaveIngredient(ingredient);
+      this.resetForm();
+    } else {
+      this.props.shoppingListAddIngredient(ingredient);
+      this.props.reset();
     }
+  }
 
-    onClickClear() {
-        this.props.shoppingListClearForm();
-        this.resetForm();
-    }
+  onClickClear() {
+    this.props.shoppingListClearForm();
+    this.resetForm();
+  }
 
-    onClickDelete() {
-        this.props.shoppingListDelete(this.props.shoppingList.item.index);
-        this.resetForm();
-    }
+  onClickDelete() {
+    this.props.shoppingListDelete(this.props.shoppingList.item.index);
+    this.resetForm();
+  }
 
-    resetForm() {
-        // forcing the initialValues to reset to null
-        this.props.initialize(null);
-    }
+  resetForm() {
+    // forcing the initialValues to reset to null
+    this.props.initialize(null);
+  }
 
-    render() {
-        const { handleSubmit } = this.props;
+  render() {
+    const { handleSubmit } = this.props;
 
-        return (
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <Row margin>
-                    <IngredientInputs col={ 3 } />
-                </Row>
-                <Row margin>
-                    <FormButtons
-                        isEdit={ this.props.shoppingList.edit }
-                        deleteIngredient={ () => this.onClickDelete.bind(this) }
-                        clearForm={ () => this.onClickClear.bind(this) }
-                    />
-                </Row>
-            </form>
-        );
-    }
+    return (
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        <Row margin>
+          <IngredientInputs col={ 3 } />
+        </Row>
+        <Row margin>
+          <FormButtons
+            isEdit={ this.props.shoppingList.edit }
+            deleteIngredient={ () => this.onClickDelete.bind(this) }
+            clearForm={ () => this.onClickClear.bind(this) }
+          />
+        </Row>
+      </form>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        shoppingList: state.shoppingList,
-        initialValues: state.shoppingList.item
+  return {
+      shoppingList: state.shoppingList,
+      initialValues: state.shoppingList.item,
     };
 }
 
 ShoppingListForm = reduxForm({
-    form:'ShoppingListForm',
-})(ShoppingListForm);
+    form: 'ShoppingListForm',
+  })(ShoppingListForm);
 
 export default connect(mapStateToProps, actions)(ShoppingListForm);

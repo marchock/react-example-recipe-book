@@ -1,4 +1,4 @@
-import Ingredients from '../../../data/ingredients';
+import Ingredients from './data/ingredients';
 
 export const initialState = {
     list: Ingredients,
