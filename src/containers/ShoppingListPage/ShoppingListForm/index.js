@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form';
 import * as actions from '../store/shopping-list.actions';
 
 import Row from '../../../components/Row/Row';
-import IngredientInputs from '../../RecipesPage/RecipesChildRoutes/RecipeForm/IngredientInputs';
+import IngredientInputs from '../../RecipesPage/RecipesChildRoutes/components/RecipeForm/IngredientInputs';
 import FormButtons from '.././ShoppingListForm/FormButtons';
 
 class ShoppingListForm extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ShoppingListItem from './ShoppingListItem';
-import Ul from '../../../components/Ul/Ul';
+import Ul from '../../../components/Ul/index';
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import * as actions from '../store/shopping-list.actions';

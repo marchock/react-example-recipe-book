@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/recipe.actions';
 import Row from '../../../../components/Row/Row';
 import FadeIn from '../../../../components/Animations/FadeIn';
-import RecipeForm from '../RecipeForm/index';
+import RecipeForm from '../components/RecipeForm/index';
 
 const RowAnimation = Row.extend`
     animation: ${FadeIn} 0.4s forwards;

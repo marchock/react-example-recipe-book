@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { renderComponent, expect } from '../../test_helper';
-import H4 from '../../../src/components/H4/H4';
+import H4 from '../../../src/components/H4/index';
 
 describe('<H4 />', () => {
     let component;

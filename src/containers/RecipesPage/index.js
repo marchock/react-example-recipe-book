@@ -4,7 +4,7 @@ import * as actions from './store/recipe.actions';
 
 import RecipesNav from './RecipesNav';
 import RecipesChildRoutes from './RecipesChildRoutes';
-import Col from '../../components/Col/Col';
+import Col from '../../components/Col/index';
 import Row from '../../components/Row/Row';
 import Button from '../../components/Button/Button';
 

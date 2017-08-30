@@ -1,7 +1,7 @@
 import React from 'react';
 import Row from '../../../../../components/Row/Row';
-import ListItem from '../../../../../components/ListItem/ListItem';
-import Ul from '../../../../../components/Ul/Ul';
+import { ListItem } from '../../../../../components/ListItem/index';
+import Ul from '../../../../../components/Ul/index';
 import Loading from '../../../../../components/Loading/index';
 
 /**

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ShoppingListForm from './ShoppingListForm';
 import ShoppingList from './ShoppingList/index';
 import Row from '../../components/Row/Row';
-import Col from '../../components/Col/Col';
+import Col from '../../components/Col/index';
 
 class ShoppingListPage extends Component {
 

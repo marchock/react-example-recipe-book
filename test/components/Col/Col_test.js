@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { renderComponent, expect } from '../../test_helper';
-import Col from '../../../src/components/Col/Col';
+import Col from '../../../src/components/Col/index';
 
 describe('<Col />', () => {
     let component;

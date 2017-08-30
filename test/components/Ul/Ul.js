@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { renderComponent, expect } from '../../test_helper';
-import Ul from '../../../src/components/Ul/Ul';
+import Ul from '../../../src/components/Ul/index';
 
 describe('<Ul />', () => {
     let component;

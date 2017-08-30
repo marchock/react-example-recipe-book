@@ -7,8 +7,8 @@ import DetailIngredients from './DetailIngredients';
 
 import Row from '../../../../components/Row/Row';
 import H1 from '../../../../components/H1/H1';
-import P from '../../../../components/P/P';
-import Img from '../../../../components/Img/Img';
+import P from '../../../../components/P/index';
+import Img from '../../../../components/Img/index';
 import FadeIn from '../../../../components/Animations/FadeIn';
 import Hr from '../../../../components/Hr/index';
 

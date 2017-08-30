@@ -2,10 +2,11 @@ import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { withRouter } from 'react-router';
 import { FormFieldsRecipes } from './FormFields';
-import Button from '../../../../components/Button/Button';
-import Row from '../../../../components/Row/Row';
+import Button from '../../../../../components/Button/Button';
+import Row from '../../../../../components/Row/Row';
 import { ingredientsArray } from './ingredientsArray';
 import { getFormTagComponent, required } from './formFunctions';
+import Hr from '../../../../../components/Hr/index';
 
 class RecipeForm extends React.Component {
 
@@ -28,23 +29,18 @@ class RecipeForm extends React.Component {
   }
 
   render() {
-    const { error, handleSubmit, pristine, reset, submitting, match } = this.props;
+    const { handleSubmit, match } = this.props;
+    const _id = match.params.id;
+    const url = _id ? `/recipes/${_id}` : '/recipes';
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Row className="flex-end child-spacing" margin>
-          <Button
-            href={ match.params.id ? `/recipes/${match.params.id}` : '/recipes'}
-            danger
-          >
-            Cancel
-          </Button>
+          <Button href={ url } danger>Cancel</Button>
           <Button type="submit" primary>Save</Button>
         </Row>
         { this.renderFields() }
-        <Row>
-            <hr />
-        </Row>
+        <Hr />
         <Row>
           <FieldArray name="ingredients" component={ ingredientsArray } />
         </Row>

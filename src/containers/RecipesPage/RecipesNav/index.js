@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Ul from '../../../components/Ul/Ul';
-import ListItemRecipe from '../../../components/ListItem/ListItemRecipe';
-import Loading from '../../../components/Loading/index';
+import Ul from '../../../components/Ul';
+import Loading from '../../../components/Loading';
+import NavLink from './NavItem';
 
 /**
  * Recipes Navigation
@@ -21,7 +21,7 @@ function RecipesNav({ recipeList }) {
   return (
     <Ul>
       { recipeList.map((recipe, index) => (
-          <ListItemRecipe recipe={recipe} index={index} key={index}/>
+          <NavLink recipe={recipe} index={index} key={index}/>
       ))}
     </Ul>
   );

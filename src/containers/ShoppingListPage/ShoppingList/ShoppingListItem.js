@@ -1,5 +1,5 @@
 import React from 'react';
-import ListItem from '../../../components/ListItem/ListItem';
+import { ListItem } from '../../../components/ListItem/index';
 
 const ShoppingListItem = (props) => {
 

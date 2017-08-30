@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { renderComponent, expect } from '../../test_helper';
-import Img from '../../../src/components/Img/Img';
+import Img from '../../../src/components/Img/index';
 
 describe('<Img />', () => {
     it('exists', () => {

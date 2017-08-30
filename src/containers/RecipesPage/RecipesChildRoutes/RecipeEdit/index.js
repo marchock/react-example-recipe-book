@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../store/recipe.actions';
 
-import RecipeForm from '../RecipeForm/index';
+import RecipeForm from '../components/RecipeForm/index';
 
 import Row from '../../../../components/Row/Row';
 import FadeIn from '../../../../components/Animations/FadeIn';

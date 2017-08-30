@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory'
 import {applyMiddleware, createStore} from 'redux';
 import ReduxThunk from 'redux-thunk';
-import reducers from '../../../src/reducers';
+import reducers from '../../../src/store/reducers';
 const history = createHistory()
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
