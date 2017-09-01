@@ -1,22 +1,17 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import ShoppingListForm from './ShoppingListForm';
 import ShoppingList from './ShoppingList/index';
 import Row from '../../components/Row/Row';
 import Col from '../../components/Col/index';
 
-class ShoppingListPage extends Component {
+export default function ShoppingListPage() {
 
-    render() {
-        return (
-            <Row>
-                <Col width={ 10 }>
-                    <ShoppingListForm />
-                    <ShoppingList />
-                </Col>
-            </Row>
-        );
-    }
-}
-
-export default ShoppingListPage
+  return (
+    <Row>
+      <Col width={ 10 }>
+        <ShoppingListForm />
+        <ShoppingList />
+      </Col>
+    </Row>
+  );
+};

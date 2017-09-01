@@ -1,33 +1,52 @@
-import React, { Component } from 'react';
-import ShoppingListItem from './ShoppingListItem';
-import Ul from '../../../components/Ul/index';
-import { connect } from 'react-redux';
+import React from 'react';
 import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import * as actions from '../store/shopping-list.actions';
 
-class ShoppingList extends Component {
+import Ul from '../../../components/Ul/index';
+import { ListItem } from '../../../components/ListItem/index';
+
+class ShoppingList extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.onClickItem = this.onClickItem.bind(this);
+    this.isSelected = this.isSelected.bind(this);
+  }
+
+  onClickItem(index) {
+    const { initialize, shoppingListUpdate } = this.props;
+    initialize(null);
+    shoppingListUpdate(index);
+  };
+
+  isSelected(index) {
+    const { item } = this.props.shoppingList;
+    return item ? (index === item.index) : false;
+  };
 
   render() {
-    const { shoppingList } = this.props;
+    const { list } = this.props.shoppingList;
 
     return (
       <Ul>
-        { shoppingList.list.map((item, i) => (
-          <ShoppingListItem
-            item={ item }
-            index={ i }
-            { ...this.props }
-            key={`item-${i}`}
-          />
+        { list.map(({ ingredient, amount }, index) => (
+          <ListItem
+            onClick={() => this.onClickItem(index)}
+            isSelected={this.isSelected(index)}
+            key={`item-${index}`}
+          >
+            { ingredient } ({ amount })
+          </ListItem>
         ))}
       </Ul>
     );
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ shoppingList }) {
   return {
-    shoppingList: state.shoppingList,
+    shoppingList,
   };
 }
 
@@ -36,4 +55,3 @@ ShoppingList = reduxForm({
 })(ShoppingList);
 
 export default connect(mapStateToProps, actions)(ShoppingList);
-

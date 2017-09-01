@@ -1,4 +1,4 @@
-import {inputText} from './inputText';
+import { inputText } from './inputText';
 import textarea from './textarea';
 
 export const required = value => value ? undefined : 'Required';

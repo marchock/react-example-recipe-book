@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import * as actions from '../store/shopping-list.actions';
@@ -7,16 +7,18 @@ import Row from '../../../components/Row/Row';
 import IngredientInputs from '../../RecipesPage/RecipesChildRoutes/components/RecipeForm/IngredientInputs';
 import FormButtons from '.././ShoppingListForm/FormButtons';
 
-class ShoppingListForm extends Component {
+class ShoppingListForm extends React.Component {
 
   onSubmit(ingredient) {
-    if (this.props.shoppingList.item) {
-      this.props.shoppingListSaveIngredient(ingredient);
-      this.resetForm();
+    const { shoppingList, shoppingListSaveIngredient, shoppingListAddIngredient } = this.props;
+
+    if (shoppingList.item) {
+      shoppingListSaveIngredient(ingredient);
     } else {
-      this.props.shoppingListAddIngredient(ingredient);
-      this.props.reset();
+      shoppingListAddIngredient(ingredient);
     }
+
+    this.props.reset();
   }
 
   onClickClear() {
@@ -35,7 +37,7 @@ class ShoppingListForm extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, shoppingList } = this.props;
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -44,7 +46,7 @@ class ShoppingListForm extends Component {
         </Row>
         <Row margin>
           <FormButtons
-            isEdit={ this.props.shoppingList.edit }
+            isEdit={ shoppingList.edit }
             deleteIngredient={ () => this.onClickDelete.bind(this) }
             clearForm={ () => this.onClickClear.bind(this) }
           />
@@ -56,13 +58,13 @@ class ShoppingListForm extends Component {
 
 function mapStateToProps(state) {
   return {
-      shoppingList: state.shoppingList,
-      initialValues: state.shoppingList.item,
-    };
+    shoppingList: state.shoppingList,
+    initialValues: state.shoppingList.item,
+  };
 }
 
 ShoppingListForm = reduxForm({
-    form: 'ShoppingListForm',
-  })(ShoppingListForm);
+  form: 'ShoppingListForm',
+})(ShoppingListForm);
 
 export default connect(mapStateToProps, actions)(ShoppingListForm);

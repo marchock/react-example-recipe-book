@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { renderComponent, expect } from '../../test_helper';
-import ListItem from '../../../src/components/ListItem/index';
+import { ListItem } from '../../../src/components/ListItem';
 
 
 describe('<ListItem />', () => {
