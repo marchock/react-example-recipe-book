@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import * as actions from '../../store/recipe.actions';
+import { recipeUpdate, recipeUnselect } from '../../store/recipe.actions';
+import { getRecipe } from '../../store/recipe.selectors';
 
 import RecipeForm from '../components/RecipeForm/index';
-
 import Row from '../../../../components/Row/Row';
-import FadeIn from '../../../../components/Animations/FadeIn';
-
-const RowAnimation = Row.extend`
-    animation: ${FadeIn} 0.4s forwards;
-`;
 
 /**
  * Recipe Edit
@@ -20,32 +15,26 @@ const RowAnimation = Row.extend`
  */
 class RecipeEdit extends React.Component {
 
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.recipe && nextProps.recipes.length > 0) {
-      this.props.recipeSelected(this.props.match.params.id);
-    }
-  }
-
   /**
    * update store.recipe.selected to null to reset component
    */
   componentWillUnmount() {
-    this.props.recipeUnselect();
+    this.props.clearSeclectedRecipe();
   }
 
   /**
    * Submit form to api and then redirect to recipe details
    */
   submitForm(values) {
-    this.props.recipeUpdate({ values });
+    this.props.updateRecipe({ values });
     this.props.history.push(`/recipes/${this.props.match.params.id}`);
   }
 
   render() {
     return (
-      <RowAnimation>
+      <Row fade-in>
         <RecipeForm onSubmit={ values => this.submitForm(values) } />
-      </RowAnimation>
+      </Row>
     );
   }
 }
@@ -55,24 +44,28 @@ RecipeEdit = reduxForm({
     enableReinitialize: true,
   })(RecipeEdit);
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   return {
-    recipe: state.recipe.selected,
-    recipes: state.recipe.list,
-    initialValues: state.recipe.selected,
+    recipe: getRecipe(state, props),
+    initialValues: getRecipe(state, props),
   };
 }
 
-export default connect(mapStateToProps, actions)(RecipeEdit);
+function mapDispatchToProps(dispatch) {
+  return {
+    updateRecipe: (values) => dispatch(recipeUpdate(values)),
+    clearSeclectedRecipe: () => dispatch(recipeUnselect()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeEdit);
 
 RecipeEdit.propTypes = {
   recipe: PropTypes.object,
-  recipes: PropTypes.array,
   initialValues: PropTypes.object,
 };
 
 RecipeEdit.defaultProps = {
   recipe: {},
   initialValues: {},
-  recipes: [],
 };

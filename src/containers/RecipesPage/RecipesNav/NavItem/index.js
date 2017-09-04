@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { ListItemLink } from '../../../../components/ListItem';
 import Col from '../../../../components/Col';
@@ -23,3 +24,11 @@ function NavLink({ recipe: { name, description, img, _id } }) {
 }
 
 export default NavLink;
+
+NavLink.propTypes = {
+  recipe: PropTypes.object.isRequired,
+};
+
+NavLink.defaultProps = {
+  recipe: {},
+};

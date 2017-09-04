@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actions from './store/recipe.actions';
+import { getRecipesFromApi } from './store/recipe.actions';
 
 import RecipesNav from './RecipesNav';
 import RecipesChildRoutes from './RecipesChildRoutes';
@@ -18,7 +19,7 @@ class RecipesPage extends React.Component {
    * Get recipes data from an api
    */
   componentWillMount() {
-    this.props.getRecipesFromApi();
+    this.props.getRecipes();
   }
 
   render() {
@@ -40,6 +41,20 @@ class RecipesPage extends React.Component {
       </Row>
     );
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getRecipes: () => dispatch(getRecipesFromApi()),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(RecipesPage);
+
+// Specifies prop Types:
+RecipesPage.propTypes = {
+  getRecipes: PropTypes.func.isRequired,
 };
 
-export default connect(null, actions)(RecipesPage);
+// Specifies the default values for props:
+RecipesPage.defaultProps = {};

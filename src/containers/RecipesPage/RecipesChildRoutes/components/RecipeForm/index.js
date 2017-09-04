@@ -50,7 +50,11 @@ class RecipeForm extends React.Component {
 }
 
 RecipeForm = reduxForm({
-    form: 'RecipeForm',
-  })(RecipeForm);
+  form: 'RecipeForm',
+})(RecipeForm);
 
 export default withRouter(RecipeForm);
+
+RecipeForm.propTypes = {};
+
+RecipeForm.defaultProps = {};

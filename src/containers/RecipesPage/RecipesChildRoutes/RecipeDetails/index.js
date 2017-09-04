@@ -11,16 +11,7 @@ import P from '../../../../components/P/index';
 import Img from '../../../../components/Img/index';
 import FadeIn from '../../../../components/Animations/FadeIn';
 import Hr from '../../../../components/Hr/index';
-
-/**
- * Extend Row and apply an animation
- *
- * NOTE: This could be a reusable component and to be moved to components
- */
-const RowAnimation = Row.extend`
-    animation: ${FadeIn} 0.4s forwards;
-    margin-top: 70px;
-`;
+import {getRecipe} from '../../store/recipe.selectors';
 
 /**
  * Recipes Details
@@ -30,22 +21,10 @@ const RowAnimation = Row.extend`
 class RecipeDetails extends Component {
 
   render() {
-    if (this.props.recipeList.length <= 0) {
-      return <div>Loading...</div>;
-    }
-
-    /**
-     * Get a recipe id from the URL
-     */
-    const { id } = this.props.match.params;
-
-    /**
-     * Find a recipe by id and output its data
-     */
-    const { img, name, description, ingredients } = this.props.recipeList.find(recipe => recipe._id === id);
+    const { img, name, description, ingredients } = this.props.recipe;
 
     return (
-      <RowAnimation>
+      <Row fade-in>
         <Row>
           <Img src={ img } />
         </Row>
@@ -55,29 +34,26 @@ class RecipeDetails extends Component {
         <Row>
           <P>{ description }</P>
         </Row>
-
         <DetailButtons />
-
         <Hr />
-
         <DetailIngredients ingredients={ ingredients } />
-      </RowAnimation>
+      </Row>
     );
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   return {
-    recipeList: state.recipe.list,
+    recipe: getRecipe(state, props),
   };
 }
 
 export default connect(mapStateToProps)(RecipeDetails);
 
 RecipeDetails.propTypes = {
-  recipeList: PropTypes.array,
+  recipe: PropTypes.object.isRequired,
 };
 
 RecipeDetails.defaultProps = {
-  recipeList: [],
+  recipe: {},
 };

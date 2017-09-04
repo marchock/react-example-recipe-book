@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Row from '../../../../../components/Row/Row';
 import { ListItem } from '../../../../../components/ListItem/index';
 import Ul from '../../../../../components/Ul/index';
@@ -30,3 +31,12 @@ export default function DetailIngredients(props) {
     </Row>
   );
 };
+
+DetailIngredients.propTypes = {
+  ingredients: PropTypes.array.isRequired,
+};
+
+DetailIngredients.defaultProps = {
+  ingredients: [],
+};
+

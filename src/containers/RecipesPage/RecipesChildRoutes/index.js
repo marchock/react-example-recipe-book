@@ -32,3 +32,7 @@ function RecipesChildRoutes(props) {
  * Wrapped RecipesChildRoutes with "withRouter" to get routing data (props.match.url)
  */
 export default withRouter(RecipesChildRoutes);
+
+RecipesChildRoutes.propTypes = {};
+
+RecipesChildRoutes.defaultProps = {};

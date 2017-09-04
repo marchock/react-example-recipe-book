@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../../../store/recipe.actions';
+import { recipeDelete } from '../../../store/recipe.actions';
 import Button from '../../../../../components/Button/Button';
 import Row from '../../../../../components/Row/Row';
 
@@ -9,7 +10,7 @@ class DetailButtons extends React.Component {
 
   onDeleteClick(id) {
     this.props.history.push('/recipes');
-    this.props.recipeDelete(id);
+    this.props.deleteRecipe(id);
   }
 
   render() {
@@ -32,4 +33,16 @@ class DetailButtons extends React.Component {
   }
 }
 
-export default connect(null, actions)(withRouter(DetailButtons));
+function mapDispatchToProps(dispatch) {
+  return {
+    deleteRecipe: (id) => dispatch(recipeDelete(id)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(DetailButtons));
+
+DetailButtons.propTypes = {
+  deleteRecipe: PropTypes.func.isRequired,
+};
+
+DetailButtons.defaultProps = {};

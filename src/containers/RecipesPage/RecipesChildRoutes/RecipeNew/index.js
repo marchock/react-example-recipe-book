@@ -1,14 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import * as actions from '../../store/recipe.actions';
-import Row from '../../../../components/Row/Row';
-import FadeIn from '../../../../components/Animations/FadeIn';
+import { recipeNew } from '../../store/recipe.actions';
 import RecipeForm from '../components/RecipeForm/index';
-
-const RowAnimation = Row.extend`
-    animation: ${FadeIn} 0.4s forwards;
-`;
+import Row from '../../../../components/Row/Row';
 
 /**
  * Recipe New
@@ -25,17 +21,29 @@ class RecipeNew extends React.Component {
    * @param: Object - values
    */
   submitForm(values) {
-    this.props.recipeNew(values);
+    this.props.addNewRecipe(values);
     this.props.history.push(`/recipes`);
   }
 
   render() {
     return (
-      <RowAnimation>
+      <Row fade-in>
         <RecipeForm onSubmit={ values => this.submitForm(values) } />
-      </RowAnimation>
+      </Row>
     );
   }
 }
 
-export default connect(null, actions)(RecipeNew);
+function mapDispatchToProps(dispatch) {
+  return {
+    addNewRecipe: (values) => dispatch(recipeNew(values)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(RecipeNew);
+
+RecipeNew.propTypes = {
+  addNewRecipe: PropTypes.func.isRequired,
+};
+
+RecipeNew.defaultProps = {};

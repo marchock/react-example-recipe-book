@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Ul from '../../../components/Ul';
 import Loading from '../../../components/Loading';
 import NavLink from './NavItem';
+import { getRecipes } from '../store/recipe.selectors';
 
 /**
  * Recipes Navigation
@@ -12,15 +13,15 @@ import NavLink from './NavItem';
  * This component will render a list of recipes.
  * Each recipe is a clickable link to display a recipe detail
  */
-function RecipesNav({ recipeList }) {
+function RecipesNav({ recipes }) {
 
-  if (recipeList.list < 1) {
+  if (recipes.list < 1) {
     return <Loading />;
   }
 
   return (
     <Ul>
-      { recipeList.map((recipe, index) => (
+      { recipes.map((recipe, index) => (
           <NavLink recipe={recipe} index={index} key={index}/>
       ))}
     </Ul>
@@ -29,16 +30,16 @@ function RecipesNav({ recipeList }) {
 
 function mapStateToProps(state) {
   return {
-    recipeList: state.recipe.list,
+    recipes: getRecipes(state),
   };
 }
 
 export default connect(mapStateToProps)(RecipesNav);
 
 RecipesNav.propTypes = {
-  recipeList: PropTypes.array.isRequired,
+  recipes: PropTypes.array.isRequired,
 };
 
 RecipesNav.defaultProps = {
-  recipeList: [],
+  recipes: [],
 };
