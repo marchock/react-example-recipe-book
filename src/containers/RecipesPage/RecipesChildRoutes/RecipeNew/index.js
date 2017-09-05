@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { recipeNew } from '../../store/recipe.actions';
-import RecipeForm from '../components/RecipeForm/index';
+import RecipeForm from '../RecipeForm/index';
 import Row from '../../../../components/Row/Row';
 
 /**

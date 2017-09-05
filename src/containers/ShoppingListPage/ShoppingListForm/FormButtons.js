@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../../components/Button/Button';
 
 const FormButtons = ({ isEdit, deleteIngredient, clearForm }) => {
@@ -28,3 +29,13 @@ const FormButtons = ({ isEdit, deleteIngredient, clearForm }) => {
 };
 
 export default FormButtons;
+
+FormButtons.propTypes = {
+  isEdit: PropTypes.bool.isRequired,
+  deleteIngredient: PropTypes.func.isRequired,
+  clearForm: PropTypes.func.isRequired,
+};
+
+FormButtons.defaultProps = {
+  editShoppingList: false,
+};

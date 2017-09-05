@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import * as actions from '../store/shopping-list.actions';
+import { shoppingListUpdate } from '../store/shopping-list.actions';
 
 import Ul from '../../../components/Ul/index';
 import { ListItem } from '../../../components/ListItem/index';
@@ -15,9 +16,8 @@ class ShoppingList extends React.Component {
   }
 
   onClickItem(index) {
-    const { initialize, shoppingListUpdate } = this.props;
-    initialize(null);
-    shoppingListUpdate(index);
+    this.props.initialize(null);
+    this.props.updateShoppingList(index);
   };
 
   isSelected(index) {
@@ -50,8 +50,23 @@ function mapStateToProps({ shoppingList }) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    updateShoppingList: (index) => dispatch(shoppingListUpdate(index)),
+  };
+}
+
 ShoppingList = reduxForm({
   form: 'ShoppingListForm',
 })(ShoppingList);
 
-export default connect(mapStateToProps, actions)(ShoppingList);
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);
+
+ShoppingList.propTypes = {
+  editShoppingList: PropTypes.bool.isRequired,
+};
+
+ShoppingList.defaultProps = {
+  editShoppingList: false,
+  ingredientSelected: null,
+};

@@ -1,31 +1,19 @@
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import { withRouter } from 'react-router';
-import { FormFieldsRecipes } from './FormFields';
-import Button from '../../../../../components/Button/Button';
-import Row from '../../../../../components/Row/Row';
-import { ingredientsArray } from './ingredientsArray';
-import { getFormTagComponent, required } from './formFunctions';
-import Hr from '../../../../../components/Hr/index';
+
+import Button from '../../../../components/Button/Button';
+import Row from '../../../../components/Row/Row';
+import Hr from '../../../../components/Hr/index';
+
+import { FormFieldsRecipes } from './components/FormFields';
+import { ingredientsArray } from './components/ingredientsArray';
+import { getFormTagComponent, required } from './components/formFunctions';
 
 class RecipeForm extends React.Component {
 
   onSubmit(values) {
     this.props.onSubmit(values);
-  }
-
-  renderFields() {
-    return FormFieldsRecipes.map(({ name, label, type, tag }) => (
-      <Row key={ name }>
-        <Field
-          name={ name }
-          label={ label }
-          type={ type }
-          component={ getFormTagComponent(tag) }
-          validate={[required]}
-        />
-      </Row>
-    ));
   }
 
   render() {
@@ -39,7 +27,19 @@ class RecipeForm extends React.Component {
           <Button href={ url } danger>Cancel</Button>
           <Button type="submit" primary>Save</Button>
         </Row>
-        { this.renderFields() }
+
+        { FormFieldsRecipes.map(({ name, label, type, tag }) => (
+          <Row key={ name }>
+            <Field
+              name={ name }
+              label={ label }
+              type={ type }
+              component={ getFormTagComponent(tag) }
+              validate={[required]}
+            />
+          </Row>
+        ))}
+
         <Hr />
         <Row>
           <FieldArray name="ingredients" component={ ingredientsArray } />

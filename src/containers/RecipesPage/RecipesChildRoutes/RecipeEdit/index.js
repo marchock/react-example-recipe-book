@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { recipeUpdate, recipeUnselect } from '../../store/recipe.actions';
 import { getRecipe } from '../../store/recipe.selectors';
 
-import RecipeForm from '../components/RecipeForm/index';
+import RecipeForm from '../RecipeForm/index';
 import Row from '../../../../components/Row/Row';
 
 /**
